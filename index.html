@@ -147,15 +147,11 @@ td code{font-size:12.5px}
 .lb-close:hover{opacity:1}
 figure img{cursor:zoom-in}
 
-
-  #mob-prog { display: none; }
-}
-
 /* ═══ MOBILE ═══ */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   /* Základní layout — stránka scrolluje jako normální web */
-  body { flex-direction: column; height: auto; min-height: 100vh; overflow-x: hidden; }
+  body { flex-direction: column; height: auto; min-height: 100vh; overflow-x: hidden; overflow-y: auto; }
   #sidebar { display: none; }
   #main { flex: none; overflow: visible; display: block; }
   #topbar { position: sticky; top: 0; padding: 10px 14px 6px; flex-wrap: wrap; gap: 4px; z-index: 50; }
@@ -259,7 +255,7 @@ figure img{cursor:zoom-in}
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 901px) {
   #mob-nav, #mob-overlay, #mob-menu-btn, #mob-prog { display: none !important; }
 }
 </style>
