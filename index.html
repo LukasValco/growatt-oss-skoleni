@@ -146,6 +146,89 @@ td code{font-size:12.5px}
 .lb-close{position:fixed;top:16px;right:22px;color:#fff;font-size:32px;cursor:pointer;line-height:1;opacity:.8}
 .lb-close:hover{opacity:1}
 figure img{cursor:zoom-in}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  body { flex-direction: column; overflow: auto; height: auto; }
+
+  #sidebar { display: none; }
+
+  #main { overflow: visible; }
+
+  #topbar { padding: 10px 16px; flex-wrap: wrap; gap: 6px; position: relative; }
+  #topbar-title { font-size: 14px; flex: 1; }
+  #topbar-meta { display: none; }
+
+  /* Mobilní progress v topbaru */
+  #mob-prog { display: flex; align-items: center; gap: 8px; width: 100%;
+    padding: 6px 0 2px; font-size: 12px; color: #888; }
+  #mob-prog-bar { flex: 1; height: 4px; background: #e0e4ea; border-radius: 99px; overflow: hidden; }
+  #mob-prog-fill { height: 100%; background: #3ecf6e; border-radius: 99px; transition: width .4s; }
+
+  #content { padding: 16px; max-width: 100%; }
+
+  .mod-header { padding: 18px 18px; border-radius: 8px; margin-bottom: 18px; }
+  .mod-header h2 { font-size: 18px; }
+  .mod-header p { font-size: 13px; }
+  .mod-goals { gap: 6px; }
+  .mod-goals li { font-size: 11px; }
+
+  .welcome-grid { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Tabulky scrollovatelné horizontálně */
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 13px; }
+
+  h3 { font-size: 14.5px; margin: 20px 0 8px; }
+  h4 { font-size: 13.5px; }
+  p, li { font-size: 14px; }
+
+  .hier { padding: 14px 16px; }
+  .hier-row { flex-wrap: wrap; }
+  .hier-indent { margin-left: 18px !important; }
+
+  .flow-step { flex-direction: row; gap: 10px; padding: 10px 12px; }
+  .flow-num { min-width: 24px; height: 24px; font-size: 12px; }
+  .flow-body h4 { font-size: 13.5px; }
+  .flow-body p, .flow-body .sub { font-size: 13px; }
+
+  .tip, .warn, .danger, .ok { font-size: 13px; padding: 10px 14px; }
+
+  .diag-card-body { padding: 12px 14px; }
+
+  .nav-btns { flex-direction: column; gap: 8px; }
+  .btn { width: 100%; padding: 12px; text-align: center; font-size: 15px; }
+
+  .quick-ref { padding: 14px 16px; }
+
+  .done-hero { padding: 24px 12px; }
+  .done-hero .icon { font-size: 48px; }
+  .done-hero h2 { font-size: 20px; }
+
+  /* Mobilní spodní navigace */
+  #mob-nav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0;
+    background: #162035; border-top: 1px solid #243350;
+    padding: 10px 16px; gap: 10px; align-items: center; z-index: 100;
+    box-shadow: 0 -2px 12px rgba(0,0,0,.3);
+  }
+  #mob-nav .mob-btn {
+    background: #243350; color: #a8bcd8; border: none; border-radius: 7px;
+    padding: 8px 16px; font-size: 14px; cursor: pointer; flex-shrink: 0;
+  }
+  #mob-nav .mob-btn:disabled { opacity: .35; }
+  #mob-nav .mob-label {
+    flex: 1; text-align: center; color: #fff; font-size: 12px; line-height: 1.3;
+  }
+  #mob-nav .mob-label .mob-num { color: #3ecf6e; font-size: 10px; display: block; }
+
+  /* Místo pro spodní nav */
+  #content { padding-bottom: 80px; }
+}
+
+@media (min-width: 769px) {
+  #mob-nav { display: none; }
+  #mob-prog { display: none; }
+}
 </style>
 </head>
 <body>
@@ -181,7 +264,8 @@ figure img{cursor:zoom-in}
       <span>🔋 Growatt OSS v2.3.9</span>
       <span>oss.growatt.com</span>
     </div>
-  </div>
+    <div id="mob-prog"><span id="mob-mod-num">Úvod</span><div id="mob-prog-bar"><div id="mob-prog-fill" style="width:0%"></div></div><span id="mob-prog-pct-label">0 %</span></div>
+</div>
   <div id="content">
 
     <!-- ══════ MODULE 0: Úvod ══════ -->
@@ -763,6 +847,23 @@ function render(){
   document.getElementById('progFill').style.width = pct+'%';
   document.getElementById('progPct').textContent = pct+' %';
   document.getElementById('main').scrollTop = 0;
+  window.scrollTo(0, 0);
+  // Mobilní prvky
+  const mobT = document.getElementById('mobTitle');
+  const mobN = document.getElementById('mobNum');
+  const mobPrev = document.getElementById('mobPrev');
+  const mobNext = document.getElementById('mobNext');
+  const mobFill = document.getElementById('mob-prog-fill');
+  const mobPct = document.getElementById('mob-prog-pct-label');
+  const mobModNum = document.getElementById('mob-mod-num');
+  if(mobT) mobT.textContent = MODULES[current].title;
+  if(mobN) mobN.textContent = current + ' / ' + (MODULES.length-1);
+  if(mobPrev) mobPrev.disabled = current === 0;
+  if(mobNext) mobNext.disabled = current === MODULES.length-1;
+  const p2 = Math.round((done.size / MODULES.length) * 100);
+  if(mobFill) mobFill.style.width = p2+'%';
+  if(mobPct) mobPct.textContent = p2+' %';
+  if(mobModNum) mobModNum.textContent = MODULES[current].title;
 }
 
 function goTo(i){
