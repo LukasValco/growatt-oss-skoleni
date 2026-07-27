@@ -332,7 +332,7 @@ figure img{cursor:zoom-in}
         <tr><td>Výkon panelů</td><td>5,84 kWp</td></tr>
         <tr><td>Zařízení</td><td>2× SPH 10000TL3 BH-UP (hybridní měnič, 10 kW)</td></tr>
         <tr><td>SN měničů</td><td>TPJ4CD200Z · TPJ4CD201V</td></tr>
-        <tr><td>Stav</td><td><span class="b b-online">Online</span></td></tr>
+        <tr><td>Stav</td><td><span class="b b-online">Normal</span></td></tr>
       </table>
 
       <div class="ok"><strong>Jak procházet školení:</strong> Postupuj moduly zleva. Po dokončení každého modulu klikni „Dokončit modul" — postup se uloží. Kdykoli se lze vrátit zpět.</div>
@@ -505,7 +505,7 @@ figure img{cursor:zoom-in}
       <h3>Sloupce v Device List (záložka On-Grid Storage)</h3>
       <table>
         <tr><th>Sloupec</th><th>Čeho si všímat</th></tr>
-        <tr><td>State</td><td>Stav: Online / Offline / Abnormal / Standby / Self Test — viz Modul 4</td></tr>
+        <tr><td>State</td><td>Stav: <strong>Normal</strong> / Waiting / Offline / Fault — pozor, zdravý měnič hlásí <strong>Normal</strong>, ne „Online". Viz Modul 4</td></tr>
         <tr><td>SN / Alias</td><td>Identifikace zařízení</td></tr>
         <tr><td>Datalogger</td><td>SN komunikačního klíče</td></tr>
         <tr><td>Daily Generation</td><td>Dnešní výroba v kWh</td></tr>
@@ -529,14 +529,23 @@ figure img{cursor:zoom-in}
         <p>Zákazník říká, že FVE nefunguje. Jak zjistíš co se děje? Postupujeme systematicky — stav → detail elektrárny → detail měniče → Data Analysis.</p>
       </div>
 
-      <h3>Čtyři provozní stavy zařízení</h3>
+      <h3>Provozní stavy zařízení — sloupec State</h3>
+      <p>Ve sloupci <strong>State</strong> se ve skutečnosti míchají <strong>dvě různé věci</strong>. Když to jednou pochopíš, přestane ti ten sloupec dělat zmatek:</p>
+      <table>
+        <tr><th>Osa</th><th>Co popisuje</th><th>Hodnoty</th></tr>
+        <tr><td><strong>Komunikace</strong><br><span style="font-size:12px;color:#888">datalogger ↔ server</span></td><td>Dorazila k nám vůbec nějaká data?</td><td><span class="b b-offline">Offline</span></td></tr>
+        <tr><td><strong>Provoz měniče</strong><br><span style="font-size:12px;color:#888">stavový registr měniče</span></td><td>Co dělá samotný měnič — hlásí to o sobě sám</td><td><span class="b b-online">Normal</span> <span class="b b-waiting">Waiting</span> <span class="b b-fault">Fault</span></td></tr>
+      </table>
+      <p>Portál obojí sloučí do jednoho sloupce. Když datalogger mlčí, přebije to všechno ostatní a uvidíš <strong>Offline</strong> — o měniči v tu chvíli nevíme vůbec nic. Když datalogger mluví, uvidíš, co o sobě říká měnič:</p>
       <table>
         <tr><th>Stav</th><th>Ikona</th><th>Co to znamená</th><th>První interpretace</th></tr>
-        <tr><td><span class="b b-online">Online</span></td><td>🟢</td><td>Běží a posílá data</td><td>OK</td></tr>
+        <tr><td><span class="b b-online">Normal</span></td><td>🟢</td><td>Běží a vyrábí normálně</td><td>OK — tohle uvidíš nejčastěji</td></tr>
         <tr><td><span class="b b-waiting">Waiting</span></td><td>🔵</td><td>Čeká na podmínky (ráno/večer, nízká radiace)</td><td>Obvykle normální, ne nutně chyba</td></tr>
-        <tr><td><span class="b b-offline">Offline</span></td><td>⚫</td><td>Neposílá data</td><td>Problém s komunikací (WiFi/router/datalogger)</td></tr>
+        <tr><td><span class="b b-offline">Offline</span></td><td>⚫</td><td>Nedorazila data</td><td>Problém s komunikací (WiFi/router/datalogger)</td></tr>
         <tr><td><span class="b b-fault">Fault</span></td><td>🔴</td><td>Měnič hlásí konkrétní chybový kód</td><td>Vyžaduje diagnostiku</td></tr>
       </table>
+      <div class="tip"><strong>Proč zrovna tahle slova:</strong> Měnič posílá do portálu svůj stavový registr, který má podle oficiálního komunikačního protokolu Growatt tři hodnoty — <code>0 = waiting</code>, <code>1 = normal</code>, <code>3 = fault</code>. Proto v portálu uvidíš <strong>Normal</strong>, a ne „Online". Zdravá instalace = <strong>Normal</strong>.</div>
+      <div class="tip"><strong>Můžeš narazit i na jiné popisky</strong> — podle typu zařízení a verze portálu se objevuje <em>Standby</em> (měnič je vypnutý nebo nevyrábí, ale nehlásí poruchu), <em>Self Test</em> (samotest při startu) nebo <em>Abnormal</em> (jiné pojmenování pro Fault). Do jedné ze čtyř kategorií výše se vždy vejdou — rozhoduj se podle nich.</div>
       <div class="warn"><strong>Klíčové rozlišení — Offline vs Fault:</strong> <strong>Offline</strong> nejčastěji = problém s <em>konektivitou</em> (WiFi, router, datalogger). FVE může klidně vyrábět, jen „nepíše domů". <strong>Fault</strong> = měnič hlásí konkrétní chybový kód — FVE pravděpodobně nefunguje nebo funguje špatně. Diagnostika se liší!</div>
 
       <h3>Detail elektrárny (Plant Detail)</h3>
@@ -590,7 +599,7 @@ figure img{cursor:zoom-in}
       <h3>Doporučený diagnostický postup — krok za krokem</h3>
       <div class="flow">
         <div class="flow-step"><div class="flow-num">1</div><div class="flow-body"><h4>Identifikuj instalaci</h4><p>Hledej podle SN měniče (Device List) nebo jména/elektrárny. Viz Modul 3.</p></div></div>
-        <div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><h4>Zkontroluj stav zařízení</h4><p>Online / Waiting / Offline / Fault? Podívej se i na „Last update" — kdy naposledy zaslal data?</p></div></div>
+        <div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><h4>Zkontroluj stav zařízení</h4><p>Normal / Waiting / Offline / Fault? Podívej se i na „Last update" — kdy naposledy zaslal data?</p></div></div>
         <div class="flow-step"><div class="flow-num">3</div><div class="flow-body"><h4>Pokud Offline → komunikační problém</h4><div class="sub"><p>• Kdy naposledy posílal data? (Operation log / Last update)</p><p>• Datalogger pod napětím? WiFi/router funguje? Zákazník nezměnil heslo WiFi?</p><p>• Řešení: rekonfigurace dataloggeru přes ShinePhone (viz Modul 5)</p></div></div></div>
         <div class="flow-step"><div class="flow-num">4</div><div class="flow-body"><h4>Pokud Fault → hledej chybový kód</h4><div class="sub"><p>• Displej měniče / Operation log / Problem List v detailu zařízení</p><p>• Porovnej s tabulkou v Modulu 6 → rozliš: zákazník sám / elektrikář / servis</p></div></div></div>
         <div class="flow-step"><div class="flow-num">5</div><div class="flow-body"><h4>Pokud běží, ale málo vyrábí</h4><div class="sub"><p>• Data Analysis → Intelligent Alert → Deviation Rate → View Data</p><p>• Historical Data: asymetrie Vpv1/Vpv2 nebo Ppv1/Ppv2 = problém stringu/zastínění</p><p>• Trvale nízký SOC = baterie</p></div></div></div>
@@ -785,7 +794,7 @@ figure img{cursor:zoom-in}
         <h3>⚡ Stavy zařízení a první reakce</h3>
         <table>
           <tr><th>Stav</th><th>Příčina</th><th>Akce</th></tr>
-          <tr><td><span class="b b-online">Online</span></td><td>Vše OK</td><td>Prohlídka výroby, Historical Data</td></tr>
+          <tr><td><span class="b b-online">Normal</span></td><td>Vše OK — měnič běží</td><td>Prohlídka výroby, Historical Data</td></tr>
           <tr><td><span class="b b-waiting">Waiting</span></td><td>Ráno/večer, nízká radiace</td><td>Normální, sledovat</td></tr>
           <tr><td><span class="b b-offline">Offline</span></td><td>WiFi, router, datalogger</td><td>Last update? WiFi heslo? → ShinePhone rekonfigurace</td></tr>
           <tr><td><span class="b b-fault">Fault</span></td><td>Chybový kód měniče</td><td>Problem List → kód → tabulka kódů</td></tr>
@@ -796,7 +805,7 @@ figure img{cursor:zoom-in}
         <h3>📊 6 kroků diagnostiky</h3>
         <div class="flow">
           <div class="flow-step"><div class="flow-num">1</div><div class="flow-body"><h4>Najdi instalaci</h4><p>SN → Device List / jméno → End User / elektrárna → Plant List</p></div></div>
-          <div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><h4>Zkontroluj stav</h4><p>Online / Waiting / Offline / Fault + kdy naposledy poslal data?</p></div></div>
+          <div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><h4>Zkontroluj stav</h4><p>Normal / Waiting / Offline / Fault + kdy naposledy poslal data?</p></div></div>
           <div class="flow-step"><div class="flow-num">3</div><div class="flow-body"><h4>Offline → komunikace</h4><p>WiFi heslo? Router? 5 GHz? Napájení? → rekonfigurace přes ShinePhone</p></div></div>
           <div class="flow-step"><div class="flow-num">4</div><div class="flow-body"><h4>Fault → chybový kód</h4><p>Problem List → kód → zákazník sám / elektrikář / servis</p></div></div>
           <div class="flow-step"><div class="flow-num">5</div><div class="flow-body"><h4>Podvýkon → Data Analysis</h4><p>Intelligent Alert → Deviation Rate → View Data + Historical Data (Vpv1 vs Vpv2)</p></div></div>
@@ -830,6 +839,7 @@ figure img{cursor:zoom-in}
       <div class="quick-ref">
         <h3>⚠️ Nezapomeň</h3>
         <ul>
+          <li>Zdravý měnič má ve sloupci State <strong>Normal</strong>, ne „Online". <strong>Offline</strong> = nedorazila data (komunikace), <strong>Fault</strong> = měnič hlásí poruchu — dva jiné hovory!</li>
           <li>Hybridní měniče SPH jsou pod záložkou <strong>On-Grid Storage</strong> (hlavní Device List) nebo <strong>Hybrid Inverter</strong> (detail elektrárny) — ne pod On-grid Inverter!</li>
           <li>Server pro ČR = <strong>„Other Countries and Regions Globally"</strong></li>
           <li>WiFi datalogger = výhradně <strong>2,4 GHz</strong>, ne 5 GHz</li>

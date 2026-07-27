@@ -25,7 +25,7 @@ Bez tohohle se demo rozsype. Odškrtej si:
 
 - [ ] **Přihlášen do OSS předem** — nikdy se nepřihlašuj naživo, zdrží to a riskuješ zamčení účtu (5× špatné heslo = 15 min lock).
 - [ ] **Odhlásit se a přihlásit znovu** těsně před začátkem, ať můžeš ukázat výběr serveru. Nebo měj login screen ve druhém okně / anonymním režimu.
-- [ ] **Dubné 93 najdi předem** a nech otevřenou v samostatné záložce — ať víš, že je Online a data tečou.
+- [ ] **Dubné 93 najdi předem** a nech otevřenou v samostatné záložce — ať víš, že je ve stavu Normal a data tečou.
 - [ ] **Najdi si předem jednu Offline instalaci.** Dubné 93 je zdravá — Offline ani Fault na ní neukážeš. V Device List → On-Grid Storage seřaď podle `State` nebo `Last update` a najdi něco odpojeného. Měj v samostatné záložce.
 - [ ] **Otevři si Data Analysis → Intelligent Alert** — ať víš, kolik tam dnes je pre-warningů.
 - [ ] **Záloha:** měj otevřený e-learning (`index.html`). Když portál spadne nebo je pomalý, dojedeš demo na screenshotech — jsou v něm všechny obrazovky, které budeš ukazovat.
@@ -140,7 +140,7 @@ Tohle **neklikej**, tohle vysvětli. Klidně u toho nakresli na papír / do chat
 
 | Sloupec | Na co se dívám |
 |---|---|
-| **State** | Online / Waiting / Offline / Fault ← **první pohled vždycky sem** |
+| **State** | Normal / Waiting / Offline / Fault ← **první pohled vždycky sem** |
 | SN / Alias | identifikace |
 | Datalogger | SN wifi klíče |
 | Daily Generation | kolik dnes vyrobil |
@@ -176,10 +176,13 @@ Tohle **neklikej**, tohle vysvětli. Klidně u toho nakresli na papír / do chat
 
 | Stav | Co to je | První reakce |
 |---|---|---|
-| 🟢 **Online** | jede a posílá data | OK, koukám dál na čísla |
+| 🟢 **Normal** | běží a vyrábí normálně | OK, koukám dál na čísla |
 | 🔵 **Waiting** | čeká na podmínky | ráno/večer/mraky — **není to porucha** |
-| ⚫ **Offline** | neposílá data | problém **komunikace** — wifi, router, datalogger |
+| ⚫ **Offline** | nedorazila data | problém **komunikace** — wifi, router, datalogger |
 | 🔴 **Fault** | měnič hlásí chybový kód | porucha, jdu hledat kód |
+
+💬 **ŘÍKÁŠ** (většina zařízení bude mít Normal, tak to rovnou vysvětli):
+> „Zdravý měnič tady má napsáno **Normal**, ne 'Online' — to slovo tam vůbec neuvidíte. Je to proto, že tenhle sloupec míchá dvě věci dohromady. Buď nám datalogger nedoručil data, a pak je tam **Offline** a o měniči nevíme nic. Nebo data dorazila, a pak je tam to, co o sobě říká sám měnič: **Normal** že jede, **Waiting** že čeká na světlo, **Fault** že má poruchu."
 
 👉 **ZDŮRAZNI — tohle je nejdůležitější věta dema:**
 > „**Offline neznamená rozbité.** Offline většinou znamená, že zákazníkovi umřela wifina nebo si změnil heslo na routeru. Ta fotovoltaika si tam venku klidně vesele vyrábí, jenom nám o tom nepíše. Kdežto **Fault** znamená, že měnič sám říká 'mám konkrétní problém'. To jsou dva úplně jiné hovory a dvě jiná řešení. Když si tohle spletete, pošlete zbytečně technika za dvě stě kilometrů kvůli přehozenému heslu od wifi."
@@ -321,7 +324,7 @@ Postup u Offline, řekni ho jako čtyři otázky na zákazníka:
 
 1. Server pro Česko = **Other Countries and Regions Globally**. Prázdný účet = tohle.
 2. Hybridy SPH jsou pod **On-Grid Storage** (hlavní Device List) nebo **Hybrid Inverter** (detail elektrárny).
-3. **Offline = komunikace. Fault = porucha.** Dva jiné hovory.
+3. Zdravý měnič = **Normal**, ne „Online". A **Offline = komunikace, Fault = porucha** — dva jiné hovory.
 4. Datalogger jede jen na **2,4 GHz**.
 5. Kódy **1xx a 4xx** — neotevírat měnič, volat servis.
 
@@ -340,7 +343,7 @@ Tohle je část, ze které si odnesou nejvíc. Ty hraješ zákazníka, oni klika
 **Hovor 2 — podvýkon**
 > „Loni v červnu mi to dělalo víc. Teď to vyrábí sotva půlku. Něco se rozbilo?"
 
-*Očekávaná reakce:* najít instalaci → State = Online → graf výroby Month → Intelligent Alert / Deviation Rate → Historical Data, porovnat Vpv1 vs Vpv2.
+*Očekávaná reakce:* najít instalaci → State = Normal → graf výroby Month → Intelligent Alert / Deviation Rate → Historical Data, porovnat Vpv1 vs Vpv2.
 *Past:* uvěří zákazníkovi bez ověření. Nauč je nejdřív odlišit počasí.
 
 **Hovor 3 — Fault**
