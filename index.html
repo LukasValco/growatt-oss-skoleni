@@ -545,7 +545,6 @@ figure img{cursor:zoom-in}
         <tr><td><span class="b b-fault">Fault</span></td><td>🔴</td><td>Měnič hlásí konkrétní chybový kód</td><td>Vyžaduje diagnostiku</td></tr>
       </table>
       <div class="tip"><strong>Proč zrovna tahle slova:</strong> Měnič posílá do portálu svůj stavový registr, který má podle oficiálního komunikačního protokolu Growatt tři hodnoty — <code>0 = waiting</code>, <code>1 = normal</code>, <code>3 = fault</code>. Proto v portálu uvidíš <strong>Normal</strong>, a ne „Online". Zdravá instalace = <strong>Normal</strong>.</div>
-      <div class="tip"><strong>Můžeš narazit i na jiné popisky</strong> — podle typu zařízení a verze portálu se objevuje <em>Standby</em> (měnič je vypnutý nebo nevyrábí, ale nehlásí poruchu), <em>Self Test</em> (samotest při startu) nebo <em>Abnormal</em> (jiné pojmenování pro Fault). Do jedné ze čtyř kategorií výše se vždy vejdou — rozhoduj se podle nich.</div>
       <div class="warn"><strong>Klíčové rozlišení — Offline vs Fault:</strong> <strong>Offline</strong> nejčastěji = problém s <em>konektivitou</em> (WiFi, router, datalogger). FVE může klidně vyrábět, jen „nepíše domů". <strong>Fault</strong> = měnič hlásí konkrétní chybový kód — FVE pravděpodobně nefunguje nebo funguje špatně. Diagnostika se liší!</div>
 
       <h3>Detail elektrárny (Plant Detail)</h3>
