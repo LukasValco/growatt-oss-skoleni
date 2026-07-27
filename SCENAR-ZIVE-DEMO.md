@@ -1,7 +1,7 @@
 # Scénář živého dema — Growatt OSS pro poruchovou linku
 
 **Formát:** sdílená obrazovka, klikáš v reálném OSS (`oss.growatt.com`), mluvíš k tomu.
-**Délka:** ~50 minut + 10 minut dotazy.
+**Délka:** ~75 minut včetně nácviku, + dotazy.
 **Referenční instalace:** Dubné 93 · end user `Tusl01` · 2× SPH 10000TL3 BH-UP · SN `TPJ4CD200Z`, `TPJ4CD201V`
 
 **Cíl, který musí posluchač na konci umět:** zavolá zákazník se střídačem Growatt → do 3 minut vím, jestli je to problém komunikace, porucha měniče, nebo podvýkon, a komu to předat.
@@ -30,6 +30,7 @@ Bez tohohle se demo rozsype. Odškrtej si:
 - [ ] **Otevři si Data Analysis → Intelligent Alert** — ať víš, kolik tam dnes je pre-warningů.
 - [ ] **Záloha:** měj otevřený e-learning (`index.html`). Když portál spadne nebo je pomalý, dojedeš demo na screenshotech — jsou v něm všechny obrazovky, které budeš ukazovat.
 - [ ] **Zvětši písmo v prohlížeči na ~125 %** — tabulky v OSS jsou drobné a na sdílené obrazovce nečitelné.
+- [ ] **Rozmysli si, na čem ukážeš Set up** (kap. 7). Ideálně na testovací instalaci. Pokud ji nemáš, dialog jen otevřeš a **nic neuložíš** — je to ostrý měnič skutečného zákazníka.
 - [ ] Zavři si osobní záložky a notifikace.
 
 > **Pokud posluchači e-learning předem neprošli**, přidej na začátek 10 minut a projdi s nimi modul 2 (datový model) pomaleji — bez něj jim portál nebude dávat smysl.
@@ -292,7 +293,74 @@ Postup u Offline, řekni ho jako čtyři otázky na zákazníka:
 
 ---
 
-## 7 · Přidání zákazníka do monitoringu (5 min)
+## 7 · Vzdálené nastavení parametrů (8 min)
+
+💬 **ŘÍKÁŠ:**
+> „Teď něco, co znáte od SolaXu. Tam běžně měníte minimální a maximální SOC baterie, zapínáte asymetrii, měníte export control. Otázka zní, jak je to u Growattu. Odpověď: umí to taky, jenom se to jmenuje jinak a je to schované jinde. A u jedné z těch věcí je správná odpověď 'tohle nesaháme'."
+
+🖱 **KLIKÁŠ:** `Device List` → najdi zařízení → sloupec **Operate** → ikona **Set up** (ozubené kolo)
+
+⚠️ **PAST — dialog otevři, ale nic neukládej.** Klikáš v ostrém prostředí do měniče skutečného zákazníka. Ukaž položky, projdi je, ale **neuloží se nic**. Pokud máš testovací instalaci, udělej to na ní.
+
+👉 **ZDŮRAZNI hned na začátku:**
+> „Tohle už není diagnostika. Diagnostika je čtení — koukáte se a nic nerozbijete. Tohle je **zápis do cizího měniče**. Můžete zákazníkovi změnit chování celé fotovoltaiky a výši účtu za elektřinu. Takže pravidlo číslo jedna: **z vlastní iniciativy tady neměníme nic.** Jenom když o to zákazník sám požádá, nebo když vám to zadá servis."
+
+### 7.1 Minimální SOC baterie — tohle měnit smíte
+
+💬 „Nejčastější požadavek. Zákazník volá, že mu baterie v noci padá na nulu a ráno nemá z čeho brát."
+
+🖱 Ukaž: kategorie **Load First** → parametr **Discharge Stopped SOC**
+
+| Parametr | Co dělá |
+|---|---|
+| **Discharge Stopped SOC** | minimum v %, pod které baterie neklesne |
+| **Discharge Power Rate** | jak rychle se smí vybíjet |
+
+💬 „Growatt doporučuje **10 až 15 procent v létě** a **40 procent v zimě**. Ta zimní rezerva není náhoda — málo se vyrábí a když spadne síť, má v baterii něco zůstat pro zálohovaný okruh."
+
+### 7.2 Režimy a časová okna — dřív než zavoláte poruchu
+
+🖱 Ukaž tři režimy: **Load First / Battery First / Grid First** a u nich časové úseky.
+
+👉 **ZDŮRAZNI — tohle vám ušetří spoustu zbytečných hovorů:**
+> „Když si zákazník stěžuje, že se baterie chová divně v určitou denní dobu — třeba že se mu večer vybíjí do sítě — nehledejte poruchu. Podívejte se na časová okna režimů. Hrozně často je to zapomenuté nastavení z instalace, ne závada."
+
+### 7.3 Export control — tohle NEMĚNÍTE
+
+🖱 Ukaž cestu: **Advance set → Register**
+
+| Registr | Hodnota | Význam |
+|---|---|---|
+| `202` | `1` | zapne omezení dodávky |
+| `201` | např. `3000` | povolený výkon do sítě ve **wattech** |
+
+👉 **ZDŮRAZNI — řekni to natvrdo:**
+> „Vidíte, že se to zadává přímo do registrů. Žádné hezké menu, holá čísla. A hlavně: povolený výkon do sítě **není technická drobnost, plyne ze smlouvy o připojení s distributorem.** Když ho zvednete, dostanete zákazníka do rozporu s podmínkami připojení. Když ho omylem shodíte na nulu, přijde o výnosy a bude to reklamovat. Na lince tohle **neděláme** — předáváme na servis nebo na toho, kdo to připojoval."
+
+### 7.4 Asymetrie — u Growattu není co nastavovat
+
+💬 **ŘÍKÁŠ:**
+> „A tady je rozdíl proti SolaXu, kvůli kterému byste jinak hledali půl hodiny. Naše SPH TL3 BH-UP jsou **asymetrické konstrukčně** — umí do každé fáze poslat jiný výkon a mají to napevno. Není to funkce, kterou byste zapínali. Takže když v nastavení hledáte přepínač asymetrie, nehledejte — není tam, protože být nemusí."
+
+💬 „Když to zákazník řeší kvůli požadavku distributora, není to věc linky. Projektant nebo servis."
+
+### 7.5 Postup, který platí vždy
+
+💬 Šest kroků, projeď je rychle:
+
+1. **Ověř oprávnění** — žádá zákazník, nebo servis? Víš, co změna udělá?
+2. **Zkontroluj stav** — musí být **Normal**. Na Offline měnič nastavení nedorazí.
+3. **Zapiš si původní hodnotu** — bez toho se nevrátíš zpátky.
+4. **Proveď změnu** — parametr → hodnota → heslo → uložit.
+5. **Ověř zpětně** — načti hodnotu znovu, opravdu se uložila?
+6. **Zaznamenej** — co, kdy, na čí žádost, z čeho na co.
+
+👉 **ZDŮRAZNI bod 2:**
+> „Na Offline měnič nastavení nedojde. Dialog se může zatvářit, že se uložilo, ale v měniči to nebude. Proto se po každé změně hodnota načítá zpátky."
+
+---
+
+## 8 · Přidání zákazníka do monitoringu (5 min)
 
 💬 **ŘÍKÁŠ:**
 > „Poslední situace: zákazník volá, a vy ho v portálu vůbec nevidíte. Buď je nový, nebo ho nikdo nenavázal na náš účet."
@@ -313,24 +381,25 @@ Postup u Offline, řekni ho jako čtyři otázky na zákazníka:
 
 ---
 
-## 8 · Závěr a tahák (3 min)
+## 9 · Závěr a tahák (3 min)
 
 🖱 **KLIKÁŠ:** otevři e-learning → modul **Diagnostický tahák**
 
 💬 **ŘÍKÁŠ:**
 > „Nic z toho si nemusíte pamatovat. Tady je tahák — vytiskněte si ho a mějte u telefonu. Šest kroků diagnostiky, stavy zařízení, nejdůležitější kódy, kdo co řeší."
 
-**Zopakuj pět vět, se kterými mají odejít:**
+**Zopakuj šest vět, se kterými mají odejít:**
 
 1. Server pro Česko = **Other Countries and Regions Globally**. Prázdný účet = tohle.
 2. Hybridy SPH jsou pod **On-Grid Storage** (hlavní Device List) nebo **Hybrid Inverter** (detail elektrárny).
 3. Zdravý měnič = **Normal**, ne „Online". A **Offline = komunikace, Fault = porucha** — dva jiné hovory.
 4. Datalogger jede jen na **2,4 GHz**.
 5. Kódy **1xx a 4xx** — neotevírat měnič, volat servis.
+6. **Export limit neměníme.** Minimální SOC na žádost zákazníka ano — a vždy ověřit, že se změna doopravdy uložila.
 
 ---
 
-## 9 · Nácvik hovoru (10 min) — nepřeskakuj
+## 10 · Nácvik hovoru (10 min) — nepřeskakuj
 
 Tohle je část, ze které si odnesou nejvíc. Ty hraješ zákazníka, oni klikají v portálu. Sdílenou obrazovku předej jim, ať to opravdu dělají sami.
 
@@ -352,6 +421,12 @@ Tohle je část, ze které si odnesou nejvíc. Ty hraješ zákazníka, oni klika
 *Očekávaná reakce:* kód 302 = chybí AC → „zkontrolujte prosím jistič" → zákazník to vyřeší sám za dvě minuty.
 *Past:* eskalují na servis. Ukaž jim v tabulce, že tohle je zákazník sám.
 
+**Hovor 4 — žádost o změnu nastavení** (tenhle je zákeřný schválně)
+> „Dobrý den, soused má taky Growatta a říkal, že si nechal zvýšit, kolik toho může posílat do sítě. Můžete mi to prosím taky přenastavit? A ještě bych chtěl, aby mi baterie nešla pod třicet procent."
+
+*Očekávaná reakce:* rozdělit to na dvě věci. **Minimální SOC = ano** (Set up → Load First → Discharge Stopped SOC, ověřit stav Normal, zapsat původní hodnotu, po uložení načíst zpátky). **Export limit = ne** — vysvětlit, že vychází ze smlouvy o připojení, a předat na servis.
+*Past:* udělají obojí, nebo naopak odmítnou obojí. Správně je rozdělit — a umět zákazníkovi vysvětlit proč.
+
 ---
 
 ## Když se demo nepovede
@@ -361,7 +436,7 @@ Tohle je část, ze které si odnesou nejvíc. Ty hraješ zákazníka, oni klika
 | OSS je pomalý nebo nedostupný | přepneš na e-learning a dojedeš to na screenshotech — jsou tam všechny obrazovky |
 | Nemůžeš se přihlásit | nezkoušej třikrát, zamkne se to; jeď ze screenshotů |
 | Dubné 93 je zrovna Offline | ideální! Ukaž to jako živý příklad Offline a diagnostiku dojeď na jiné instalaci |
-| Nestíháš čas | vynech kapitolu 7 (přidání do monitoringu) — je nejmíň častá; **nikdy nevynechávej kapitolu 5 a 9** |
+| Nestíháš čas | vynech kapitolu 8 (přidání do monitoringu) — je nejmíň častá; **nikdy nevynechávej kapitolu 5, 7.3 a 10** |
 
 ---
 
@@ -376,6 +451,7 @@ Tohle je část, ze které si odnesou nejvíc. Ty hraješ zákazníka, oni klika
 | 4 | Dohledání zákazníka | 10 | 27 |
 | 5 | **Diagnostika** | **15** | 42 |
 | 6 | Chybové kódy | 6 | 48 |
-| 7 | Přidání do monitoringu | 5 | 53 |
-| 8 | Závěr a tahák | 3 | 56 |
-| 9 | **Nácvik hovoru** | **10** | **66** |
+| 7 | **Vzdálené nastavení** | **8** | 56 |
+| 8 | Přidání do monitoringu | 5 | 61 |
+| 9 | Závěr a tahák | 3 | 64 |
+| 10 | **Nácvik hovoru** | **10** | **74** |

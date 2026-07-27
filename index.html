@@ -281,7 +281,8 @@ figure img{cursor:zoom-in}
     <li onclick="goTo(4)"><a href="#"><span class="nav-num">4</span><span class="nav-text">Diagnostika FVE</span><span class="nav-check">✓</span></a></li>
     <li onclick="goTo(5)"><a href="#"><span class="nav-num">5</span><span class="nav-text">Přidání do monitoringu</span><span class="nav-check">✓</span></a></li>
     <li onclick="goTo(6)"><a href="#"><span class="nav-num">6</span><span class="nav-text">Chybové kódy a problémy</span><span class="nav-check">✓</span></a></li>
-    <li onclick="goTo(7)"><a href="#"><span class="nav-num">📋</span><span class="nav-text">Diagnostický tahák</span><span class="nav-check">✓</span></a></li>
+    <li onclick="goTo(7)"><a href="#"><span class="nav-num">7</span><span class="nav-text">Vzdálené nastavení</span><span class="nav-check">✓</span></a></li>
+    <li onclick="goTo(8)"><a href="#"><span class="nav-num">📋</span><span class="nav-text">Diagnostický tahák</span><span class="nav-check">✓</span></a></li>
   </ul>
 </nav>
 
@@ -310,7 +311,7 @@ figure img{cursor:zoom-in}
         <ul class="mod-goals">
           <li>⏱ Cca 60–75 minut</li>
           <li>🖥 Samostatné studium</li>
-          <li>🔍 6 modulů + tahák</li>
+          <li>🔍 7 modulů + tahák</li>
         </ul>
       </div>
 
@@ -320,6 +321,7 @@ figure img{cursor:zoom-in}
         <div class="wcard"><div class="wi">📊</div><div><h4>Diagnostikovat FVE</h4><p>Přečíst stav měniče, baterie, výkon — říct zákazníkovi co se děje.</p></div></div>
         <div class="wcard"><div class="wi">➕</div><div><h4>Přidat instalaci</h4><p>Přidat zákazníka a instalaci do našeho distributor účtu.</p></div></div>
         <div class="wcard"><div class="wi">🚨</div><div><h4>Chybové kódy</h4><p>Rozlišit co zákazník zvládne sám a kdy volat servis.</p></div></div>
+        <div class="wcard"><div class="wi">⚙️</div><div><h4>Nastavit na dálku</h4><p>Minimální SOC baterie, režimy — a vědět, co naopak měnit nesmíme.</p></div></div>
       </div>
 
       <h3>Referenční instalace</h3>
@@ -767,12 +769,93 @@ figure img{cursor:zoom-in}
       <div class="nav-btns">
         <button class="btn btn-secondary" onclick="prevModule()">← Zpět</button>
         <button class="btn btn-done" onclick="doneModule()">Dokončit modul 6 ✓</button>
+        <button class="btn btn-primary" onclick="nextModule()">Modul 7 →</button>
+      </div>
+    </div>
+
+    <!-- ══════ MODULE 7: Vzdálené nastavení ══════ -->
+    <div class="module" id="m7">
+      <div class="mod-header">
+        <div class="mod-tag">Modul 7 · 12 minut</div>
+        <h2>Vzdálené nastavení parametrů měniče</h2>
+        <p>OSS umí měnič nejen sledovat, ale i <strong>přenastavit na dálku</strong> — minimální SOC baterie, provozní režim, omezení dodávky do sítě. Je to mocný nástroj a přesně proto s ním zacházej opatrně.</p>
+      </div>
+
+      <div class="danger"><strong>⛔ Než cokoliv změníš — přečti si tohle:</strong> Vzdálené nastavení je <strong>zápis do cizího zařízení</strong>. Neděláš diagnostiku, ale zásah do majetku zákazníka, který mu může změnit chování celé fotovoltaiky i výši účtu za elektřinu. Na poruchové lince platí: <strong>parametry neměníme z vlastní iniciativy</strong>. Měníme je jen tehdy, když o to zákazník výslovně požádá a víme, co změna udělá — nebo když nám to zadá servis či technik. Vždy si poznamenej, co jsi změnil, kdy a na čí žádost.</div>
+
+      <h3>Kde se nastavení skrývá</h3>
+      <p>Vede tam víc cest, všechny končí ve stejném dialogu:</p>
+      <table>
+        <tr><th>Cesta</th><th>Kudy</th></tr>
+        <tr><td><strong>Z Device List</strong></td><td>Najdi zařízení → sloupec <strong>Operate</strong> → ikona <strong>Set up</strong> (ozubené kolo)</td></tr>
+        <tr><td><strong>Z detailu měniče</strong></td><td>Dvojklik na zařízení → tlačítko nastavení v detailu</td></tr>
+        <tr><td><strong>ShinePhone</strong></td><td>Zákazník nebo technik má v appce v zásadě stejné položky jako my v OSS</td></tr>
+      </table>
+      <div class="tip"><strong>Vyžaduje heslo.</strong> Zápis parametrů je chráněn servisním heslem — bez něj dialog změnu neuloží. Pokud ho nemáš, změnu neprovádíš a předáváš ji na servis.</div>
+      <div class="warn"><strong>Měnič musí být dostupný.</strong> Nastavení se posílá přes datalogger do měniče. Když je zařízení <strong>Offline</strong>, změna nikam nedojde — může se tvářit, že se uložila, ale v měniči nebude. Před každou změnou zkontroluj, že stav je <strong>Normal</strong>, a po změně si hodnotu <strong>načti zpátky</strong> a ověř.</div>
+
+      <h3>Minimální SOC baterie — nejčastější požadavek</h3>
+      <p>Zákazník volá, že mu baterie „jde na nulu" a v noci nemá z čeho brát, nebo naopak že mu zůstává zbytečně plná. Řídí to hodnota, pod kterou se baterie přestane vybíjet.</p>
+      <table>
+        <tr><th>Parametr</th><th>Co dělá</th></tr>
+        <tr><td><strong>Discharge Stopped SOC</strong><br><span style="font-size:12px;color:#888">v kategorii <em>Load First</em></span></td><td>Minimální nabití v %, pod které baterie neklesne. Když ho baterie dosáhne, vybíjení se zastaví a spotřebu převezme FVE a síť.</td></tr>
+        <tr><td><strong>Discharge Power Rate</strong></td><td>Jak rychle se smí baterie vybíjet (% z maximálního výkonu)</td></tr>
+      </table>
+      <div class="tip"><strong>Doporučené hodnoty podle Growattu:</strong> v létě <strong>10–15 %</strong>, v zimě <strong>40 %</strong>. Zimní rezerva je vyšší schválně — málo výroby a případný výpadek sítě, na který má zůstat energie pro zálohovaný okruh.</div>
+      <div class="warn"><strong>Nezaměňuj dva různé požadavky:</strong> „baterie se vybíjí do nuly" řeší <em>Discharge Stopped SOC</em>. „Baterie se nenabíjí do plna" je něco jiného — tam se koukej na nabíjecí nastavení a hlavně na to, jestli měnič nehlásí chybu komunikace s BMS baterie (kód W20).</div>
+
+      <h3>Provozní režimy SPH</h3>
+      <p>Hybridní měniče SPH mají tři režimy. U každého se dají nastavit <strong>časové úseky</strong>, kdy platí — proto se chování mění během dne.</p>
+      <table>
+        <tr><th>Režim</th><th>Co dělá</th></tr>
+        <tr><td><strong>Load First</strong></td><td>Přednost má spotřeba domu. Když výroba nestačí, dobírá se z baterie — až po <em>Discharge Stopped SOC</em>. Standardní nastavení pro rezidenci.</td></tr>
+        <tr><td><strong>Battery First</strong></td><td>Přednost má nabití baterie. Používá se, když se má baterie natankovat (levný tarif, příprava na výpadek).</td></tr>
+        <tr><td><strong>Grid First</strong></td><td>Přednost má dodávka do sítě — měnič baterii záměrně vybíjí do sítě v nastavených časech.</td></tr>
+      </table>
+      <div class="tip"><strong>Diagnostický tip:</strong> Když si zákazník stěžuje na „divné" chování baterie v určitou denní dobu, podívej se nejdřív na <strong>časové úseky režimů</strong>. Hodně údajných poruch je jen zapomenuté časové okno z instalace.</div>
+
+      <h3>Omezení dodávky do sítě (Export Limit)</h3>
+      <p>Určuje, kolik výkonu smí fotovoltaika posílat do distribuční sítě. U Growattu se to nastavuje přes <strong>Advance set → Register</strong> — zapisují se přímo dva registry:</p>
+      <table>
+        <tr><th>Registr</th><th>Hodnota</th><th>Význam</th></tr>
+        <tr><td><code>202</code></td><td><code>1</code></td><td>Zapne funkci omezení dodávky</td></tr>
+        <tr><td><code>201</code></td><td>např. <code>3000</code></td><td>Povolený výkon do sítě ve <strong>wattech</strong> (3000 = 3 kW)</td></tr>
+      </table>
+      <p>Po vyplnění registru a hodnoty se zadá heslo a uloží. Omezení se u některých modelů zadává i procentem — <code>100 %</code> znamená plnou dodávku, <code>50 %</code> polovinu, <code>0 %</code> je nulový export.</p>
+      <div class="danger"><strong>⛔ Tohle sám neměň.</strong> Povolený výkon do sítě není technická drobnost — vychází ze <strong>smlouvy o připojení s distributorem</strong>. Když ho zvýšíš, můžeš zákazníka dostat do rozporu s podmínkami připojení; když ho omylem snížíš nebo vynuluješ, přijde o výnosy a bude reklamovat. Změnu export limitu na lince <strong>neprovádíme</strong> — předáváme ji na servis nebo na toho, kdo instalaci připojoval.</div>
+
+      <h3>Asymetrie — čím se Growatt liší od SolaXu</h3>
+      <p>U některých značek se asymetrický provoz zapíná a vypíná jako samostatná funkce. U <strong>SPH ...TL3 BH-UP</strong>, které montujeme nejčastěji, to tak není: tyto měniče jsou <strong>konstrukčně asymetrické</strong> a zvládají 100% nerovnoměrné rozložení výkonu mezi fázemi. Není to funkce, kterou bys zapínal — měnič ji má vždy.</p>
+      <div class="tip"><strong>Co říct zákazníkovi:</strong> „Váš měnič umí do každé fáze poslat jiný výkon, tohle se nenastavuje." Pokud zákazník řeší asymetrii kvůli požadavku distributora, není to věc poruchové linky — patří to na projektanta nebo servis.</div>
+
+      <h3>Postup při jakékoliv změně parametru</h3>
+      <div class="flow">
+        <div class="flow-step"><div class="flow-num">1</div><div class="flow-body"><h4>Ověř oprávnění</h4><p>Žádá o to zákazník sám, nebo servis? Víš, co změna udělá? Když ne — nepokračuj.</p></div></div>
+        <div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><h4>Zkontroluj stav</h4><p>Zařízení musí být <strong>Normal</strong>. Na Offline měnič nastavení nedorazí.</p></div></div>
+        <div class="flow-step"><div class="flow-num">3</div><div class="flow-body"><h4>Zapiš si původní hodnotu</h4><p>Než něco přepíšeš, poznamenej si, co tam bylo. Bez toho se nevrátíš zpátky.</p></div></div>
+        <div class="flow-step"><div class="flow-num">4</div><div class="flow-body"><h4>Proveď změnu</h4><p>Set up → parametr → hodnota → heslo → uložit.</p></div></div>
+        <div class="flow-step"><div class="flow-num">5</div><div class="flow-body"><h4>Ověř zpětně</h4><p>Načti hodnotu znovu. Uložilo se to doopravdy? U SOC zkontroluj i chování v Historical Data.</p></div></div>
+        <div class="flow-step"><div class="flow-num">6</div><div class="flow-body"><h4>Zaznamenej</h4><p>Co, kdy, na čí žádost, z jaké hodnoty na jakou. Zákazníkovi řekni, co jsi změnil a co to udělá.</p></div></div>
+      </div>
+
+      <h3>Rychlé srovnání — co u SolaXu × kde u Growattu</h3>
+      <table>
+        <tr><th>Co potřebuješ</th><th>Kde to je u Growattu</th><th>Smíme na lince?</th></tr>
+        <tr><td>Minimální SOC baterie</td><td>Set up → <em>Load First</em> → <strong>Discharge Stopped SOC</strong></td><td>✅ Na žádost zákazníka</td></tr>
+        <tr><td>Maximální SOC / nabíjení</td><td>Set up → nabíjecí nastavení (<em>Battery First</em>)</td><td>✅ Na žádost zákazníka</td></tr>
+        <tr><td>Export control / limit do sítě</td><td>Set up → <em>Advance set</em> → Register <code>202</code>=1, <code>201</code>=W</td><td>❌ Předat servisu</td></tr>
+        <tr><td>Zapnout / vypnout asymetrii</td><td>U SPH ...TL3 BH-UP se nenastavuje — měnič je asymetrický vždy</td><td>— Nemá co měnit</td></tr>
+      </table>
+
+      <div class="nav-btns">
+        <button class="btn btn-secondary" onclick="prevModule()">← Zpět</button>
+        <button class="btn btn-done" onclick="doneModule()">Dokončit modul 7 ✓</button>
         <button class="btn btn-primary" onclick="nextModule()">Diagnostický tahák →</button>
       </div>
     </div>
 
-    <!-- ══════ MODULE 7: Tahák ══════ -->
-    <div class="module" id="m7">
+    <!-- ══════ MODULE 8: Tahák ══════ -->
+    <div class="module" id="m8">
       <div class="mod-header">
         <div class="mod-tag">Závěr — rychlá reference</div>
         <h2>Diagnostický tahák</h2>
@@ -827,6 +910,19 @@ figure img{cursor:zoom-in}
       </div>
 
       <div class="quick-ref">
+        <h3>⚙️ Vzdálené nastavení — co smím a co ne</h3>
+        <table>
+          <tr><th>Parametr</th><th>Kde</th><th>Na lince?</th></tr>
+          <tr><td>Minimální SOC baterie</td><td>Set up → <em>Load First</em> → Discharge Stopped SOC<br><span style="font-size:12px;color:#888">léto 10–15 %, zima 40 %</span></td><td>✅ Na žádost zákazníka</td></tr>
+          <tr><td>Nabíjení / max SOC</td><td>Set up → <em>Battery First</em></td><td>✅ Na žádost zákazníka</td></tr>
+          <tr><td>Provozní režim + časy</td><td>Set up → Load / Battery / Grid First</td><td>✅ Ověřit dřív než hlásíš poruchu</td></tr>
+          <tr><td>Export limit (výkon do sítě)</td><td><em>Advance set</em> → Register <code>202</code>=1, <code>201</code>=W</td><td>❌ <strong>Předat servisu</strong> — plyne ze smlouvy o připojení</td></tr>
+          <tr><td>Asymetrie</td><td>U SPH ...TL3 BH-UP se nenastavuje, měnič ji má vždy</td><td>— Nemá co měnit</td></tr>
+        </table>
+        <p style="margin-top:8px"><strong>Vždy:</strong> zařízení musí být <strong>Normal</strong> (na Offline změna nedojde) · zapiš si původní hodnotu · po uložení ověř zpětně · zaznamenej co, kdy a na čí žádost.</p>
+      </div>
+
+      <div class="quick-ref">
         <h3>➕ Přidání zákazníka do monitoringu</h3>
         <p><strong>Pořadí:</strong> End User → Plant → Add the Datalogger (SN + Check Code)</p>
         <ul>
@@ -850,7 +946,7 @@ figure img{cursor:zoom-in}
       <div class="done-hero">
         <div class="icon">🎉</div>
         <h2>Školení dokončeno!</h2>
-        <p>Zvládl/a jsi všech 6 modulů. Na živém meetingu si projdeme reálný portál na instalaci Dubné 93 a zodpovíme případné dotazy.</p>
+        <p>Zvládl/a jsi všech 7 modulů. Na živém meetingu si projdeme reálný portál na instalaci Dubné 93 a zodpovíme případné dotazy.</p>
         <button class="btn btn-primary" onclick="goTo(0)" style="margin-top:8px">↩ Začít znovu</button>
       </div>
 
@@ -868,11 +964,12 @@ const MODULES = [
   {id:'m4', title:'Diagnostika FVE'},
   {id:'m5', title:'Přidání do monitoringu'},
   {id:'m6', title:'Chybové kódy a problémy'},
-  {id:'m7', title:'Diagnostický tahák'},
+  {id:'m7', title:'Vzdálené nastavení'},
+  {id:'m8', title:'Diagnostický tahák'},
 ];
 
 let current = 0;
-const done = new Set(JSON.parse(localStorage.getItem('ossEDone') || '[]'));
+const done = new Set(JSON.parse(localStorage.getItem('ossEDone_v2') || '[]'));
 
 function render(){
   MODULES.forEach((m,i)=>{
@@ -900,7 +997,7 @@ function nextModule(){ if(current < MODULES.length-1){ goTo(current+1); } }
 function prevModule(){ if(current > 0){ goTo(current-1); } }
 function doneModule(){
   done.add(current);
-  try{ localStorage.setItem('ossEDone', JSON.stringify([...done])); }catch(e){}
+  try{ localStorage.setItem('ossEDone_v2', JSON.stringify([...done])); }catch(e){}
   render();
 }
 
@@ -924,7 +1021,7 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeLb(); });
 function buildMobMenu() {
   const panel = document.getElementById('mob-menu-panel');
   if (!panel || panel.querySelectorAll('.mob-menu-item').length > 0) return;
-  const nums = ['🏠','1','2','3','4','5','6','📋'];
+  const nums = ['🏠','1','2','3','4','5','6','7','📋'];
   MODULES.forEach((m, i) => {
     const div = document.createElement('div');
     div.className = 'mob-menu-item';
