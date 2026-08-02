@@ -289,12 +289,19 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 |---|---|
 | `Status` | provozní režim — u zdravé instalace `PV Bat Online`, tedy běží panely i baterie |
 | `Ppv`, `Vpv1`, `Ppv1` | **výkon a napětí z panelů** — tady vidíte, že elektrárna skutečně vyrábí |
-| `Vac1`, `Vac2`, `Vac3`, `Fac` | **napětí na jednotlivých fázích a frekvence sítě** |
+| `Vac1`–`Vac3`, `Fac` | **sdružená napětí mezi fázemi** (~400 V) a frekvence sítě |
+| `EpsVac1`–`EpsVac3` | napětí na **zálohovaném výstupu** (~230 V na fázi) |
 | `SOC`, `VBat` | nabití a napětí baterie |
 
 > „**Status** je provozní režim. Tady je `PV Bat Online`, tedy běží panely i baterie. Kdyby tam stálo jen `Bat Online`, znamenalo by to, že jede jen baterie a z panelů nic nechodí.
 >
-> **Ppv a Vpv** jsou výkon a napětí z panelů — když se vás někdo zeptá, jestli elektrárna opravdu vyrábí, odpověď je tady, a je to údaj přímo ze střídače. **Vac1 až Vac3** jsou napětí na jednotlivých fázích a **Fac** frekvence sítě, takže dotaz na napětí na síti vyřešíte odsud. A **SOC** s **VBat** je nabití a napětí baterie."
+> **Ppv a Vpv** jsou výkon a napětí z panelů — když se vás někdo zeptá, jestli elektrárna opravdu vyrábí, odpověď je tady, a je to údaj přímo ze střídače. **Vac1 až Vac3** je napětí sítě a **Fac** frekvence, takže dotaz na napětí vyřešíte odsud.
+>
+> A tady si dejte pozor na jednu věc, o kterou se dá zakopnout. Uvidíte tam čísla kolem **čtyř set deseti voltů** a mohli byste si říct, že je to strašné přepětí. Není. **Growatt v těchhle sloupcích uvádí sdružené napětí, tedy napětí mezi dvěma fázemi, ne mezi fází a nulou.** Naše síť má sdruženě čtyři sta voltů a na fázi dvě stě třicet. Když tedy chcete napětí na fázi, **vydělte to číslo 1,73** — ze čtyř set deseti vám vyjde dvě stě třicet sedm voltů, což je naprosto v pořádku.
+>
+> Že je to opravdu tak, poznáte i podle sloupců **EpsVac** o kus dál — to je napětí na zálohovaném výstupu a tam jsou čísla kolem dvou set třiceti. Stejná instalace, stejný okamžik, jednou sdruženě a jednou na fázi.
+>
+> A **SOC** s **VBat** je nabití a napětí baterie."
 
 ### 4) Kde se mění nastavení (4 min)
 
