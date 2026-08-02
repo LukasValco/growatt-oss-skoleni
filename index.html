@@ -433,7 +433,7 @@ figure img{cursor:zoom-in}
         <tr><td><strong>SN dataloggeru</strong></td><td>Sériové číslo WiFi klíče</td><td>Štítek na WiFi klíči / v ShinePhone</td></tr>
         <tr><td><strong>Check Code</strong></td><td>Ověřovací kód — bez něj nelze přidat</td><td>Štítek na WiFi klíči (obvykle pod SN)</td></tr>
       </table>
-      <div class="tip"><strong>Pozor!</strong> SN měniče ≠ SN dataloggeru. Zákazník může znát SN měniče z displeje — to je jiné číslo než SN WiFi klíče. Pro přidání zařízení potřebujeme SN <em>dataloggeru</em> + Check Code.</div>
+      <div class="tip"><strong>Pozor!</strong> SN měniče ≠ SN dataloggeru. SN měniče je na typovém štítku na boku měniče, SN dataloggeru na štítku WiFi klíče — dvě různá desetimístná čísla. Pro přidání zařízení potřebujeme SN <em>dataloggeru</em> + Check Code.</div>
 
       <h3>Typy elektráren</h3>
       <table>
@@ -475,7 +475,7 @@ figure img{cursor:zoom-in}
         <tr><td>Název nebo adresu elektrárny</td><td><strong>Plant List → základní vyhledávání</strong></td></tr>
         <tr><td>Nic přesného neví</td><td>Plant List → Advanced Screening (filtr regionu, data, výkonu)</td></tr>
       </table>
-      <div class="tip"><strong>Tip pro hovor:</strong> Vždy se zákazníka nejdřív zeptej na SN měniče — najde ho na displeji nebo štítku. Dohledání přes SN je nejspolehlivější a nejrychlejší.</div>
+      <div class="tip"><strong>Tip pro hovor:</strong> Vždy se zákazníka nejdřív zeptej na SN měniče — najde ho na <strong>typovém štítku na boku měniče</strong>. Dohledání přes SN je nejspolehlivější a nejrychlejší.</div>
 
       <h3>Cesta A: Monitoring → End User</h3>
       <p>Zobrazuje seznam všech zákazníků (end userů) v našem účtu.</p>
@@ -547,6 +547,7 @@ figure img{cursor:zoom-in}
         <tr><td><span class="b b-fault">Fault</span></td><td>🔴</td><td>Měnič hlásí konkrétní chybový kód</td><td>Vyžaduje diagnostiku</td></tr>
       </table>
       <div class="tip"><strong>Proč zrovna tahle slova:</strong> Měnič posílá do portálu svůj stavový registr, který má podle oficiálního komunikačního protokolu Growatt tři hodnoty — <code>0 = waiting</code>, <code>1 = normal</code>, <code>3 = fault</code>. Proto v portálu uvidíš <strong>Normal</strong>, a ne „Online". Zdravá instalace = <strong>Normal</strong>.</div>
+      <div class="tip"><strong>Pozor na dva různé sloupce.</strong> Sloupec <strong>State</strong> v Device List je souhrnný stav popsaný výše. V <strong>Historical Data</strong> je ale ještě sloupec <strong>Status</strong>, který u hybridů popisuje provozní režim podrobněji — u Dubné 93 tam uvidíš <code>PV Bat Online</code>, což podle stavového registru Growattu odpovídá hodnotě 5: <em>běží PV i baterie</em>. Hodnota 6 znamená <em>jen baterie, bez PV</em>. Nejsou to protichůdné údaje, jen dvě různě podrobná pole.</div>
       <div class="warn"><strong>Klíčové rozlišení — Offline vs Fault:</strong> <strong>Offline</strong> nejčastěji = problém s <em>konektivitou</em> (WiFi, router, datalogger). FVE může klidně vyrábět, jen „nepíše domů". <strong>Fault</strong> = měnič hlásí konkrétní chybový kód — FVE pravděpodobně nefunguje nebo funguje špatně. Diagnostika se liší!</div>
 
       <h3>Detail elektrárny (Plant Detail)</h3>
