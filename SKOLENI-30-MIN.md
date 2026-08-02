@@ -19,6 +19,22 @@
 
 ---
 
+## Plán obrazovky
+
+Máš dvě okna: **živý web** (OSS portál / e-learning) a **tenhle scénář**, ze kterého čteš. Sdílíš vždycky jen to živé okno.
+
+| Čas | Co promítáš |
+|---|---|
+| 7:00 | **Nic** — nesdílíš. Úvod je o očním kontaktu. |
+| 7:04 | **Nic** nebo úvodní stránka e-learningu |
+| 7:06 | **E-learning → Modul 2 „Datový model"** — schéma tří pater |
+| 7:09 | **Živý OSS portál** — tady začíná sdílení naostro |
+| 7:22 | **Zůstáváš v OSS** na nalezeném řádku |
+| 7:26 | **E-learning** — 30 sekund, ukázat a zavřít |
+| 7:28 | **Ukončit sdílení** — závěr zase očima |
+
+---
+
 ## Princip: ukázat, ale neučit
 
 Ukazuj klidně víc, než si zapamatují. Cílem je, aby to **jednou viděli** a věděli, že to existuje — ne aby to uměli. U každého detailu, který se otevře, máš připravenou odkládací větu:
@@ -28,13 +44,9 @@ Ukazuj klidně víc, než si zapamatují. Cílem je, aby to **jednou viděli** a
 > 🗣 **„Na tohle uděláme samostatný návod, až to bude aktuální."**
 > 🗣 **„Tohle vy dělat nebudete, jen ať víte, že to jde."**
 
-Používej je bez váhání. Drží tempo a zároveň nikoho neodbydou.
-
 ---
 
 ## Co jen zmíníš a odložíš
-
-Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 | Téma | Jak to odbýt |
 |---|---|
@@ -51,11 +63,11 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 - [ ] **Přihlášen v OSS** — ne naživo v 7:00
 - [ ] **Testovací instalace otevřená** v druhé záložce, ověřeno že stav je `Normal` a data tečou
 - [ ] **SN testovací instalace do schránky** — budeš ho vkládat
+- [ ] **E-learning otevřený na modulu 2** — budeš ho promítat hned ve třetí části
 - [ ] **Písmo v prohlížeči na 125 %** — v 7 ráno na sdílené obrazovce
-- [ ] **E-learning otevřený** jako záloha, kdyby portál nejel
 - [ ] Zavřené osobní záložky a notifikace
 
-> ⚠️ **Máš jen jednu testovací instalaci a je zdravá.** Offline ani poruchu neukážeš. Scénář to řeší tak, že to **přiznáš nahlas** — a využiješ toho: prázdný Problem List a prázdný operation log jsou samy o sobě dobrá ukázka toho, jak vypadá zdravá instalace.
+> ⚠️ **Máš jen jednu testovací instalaci a je zdravá.** Offline ani poruchu neukážeš. Scénář to řeší tak, že to **přiznáš nahlas** — a využiješ toho: prázdný Problem List je sám o sobě ukázka toho, jak vypadá zdravá instalace.
 
 ---
 
@@ -63,39 +75,51 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 ---
 
-## 7:00–7:03 · Úvod (3 min)
+## 7:00–7:04 · Proč jsme tady (4 min)
 
-*Nejdůležitější část celého školení. Když tady neuspěješ, zbytek si neposlechnou.*
+📺 **PROMÍTÁŠ:** nic. Zatím nesdílej obrazovku — první čtyři minuty jsou o očním kontaktu, ne o obrázcích.
 
-> „Dobré ráno. Budu tady půl hodiny, ani o minutu víc.
+### Nejdřív: o čem to bude
+
+> „Dobré ráno. Budu tady půl hodiny, přesně do půl osmé.
 >
-> Než začnu, řeknu rovnou to, co si teď myslíte. Že přichází jedenáctý systém, ve kterém máte umět dělat. Vím, v kolika systémech se pohybujete, a chápu, že tohle není zpráva, na kterou jste čekali.
+> Sejdeme se kvůli jedné konkrétní věci. V září spouštíme nabídku servisu pro střídače značky **Growatt**. Znamená to, že někdy od podzimu vám můžou volat zákazníci, kteří mají na zdi Growatta místo SolaXe nebo GoodWe.
 >
-> Takže rovnou: **dneska vám nic nepřibývá.** Ukážu vám toho možná víc, než budete potřebovat — ale nechci, abyste si to pamatovali. Chci, abyste to jednou viděli a věděli, že to existuje."
+> Za těch třicet minut projdeme tři věci. **Co Growatt je** a jak ho poznáte. **Kde toho zákazníka najdete** — to si ukážeme naživo, budu klikat v reálném portálu. A **co s tím pak uděláte.** To je celé, nic jiného dneska nebude."
 
-**Pauza.** Nech to dosednout.
+### Teprve pak: poctivě k tomu, co jim přibývá
 
-> „Co se děje: v září spouštíme nabídku servisu pro střídače značky **Growatt**. Reálně se vám první zákazník ozve nejdřív někdy v říjnu. Takže máte spoustu času.
+*Až po agendě. Nejdřív musí vědět, o čem se bavíme.*
+
+> „A teď rovnou k tomu, co si někteří z vás asi myslí. Ano — přibývá vám další značka a další portál. Nebudu vám tvrdit, že ne. Vím, v kolika systémech se pohybujete, a tvrdit vám, že se nic neděje, by byla blbost, kterou byste mi stejně nesežrali.
 >
-> Za těch třicet minut chci, abyste odcházeli se třemi věcmi: co Growatt je, kde toho zákazníka najdete, a co s tím uděláte dál. Všechno ostatní dostanete napsané."
+> Co vám ale říct můžu, je **jak málo toho přibývá.** Nebudete v tom portálu nic nastavovat. Nebudete nic opravovat. A nemusíte si z něj nic pamatovat. Prakticky v něm budete dělat jedinou věc — najdete zákazníka podle sériového čísla a podíváte se na dva sloupce. To je všechno, co po vás kdo chce.
+>
+> A není to na dnešek. Servis se rozjíždí v září, reálně se první instalace u nás objeví někdy v říjnu. Máte dva měsíce a mezitím dostanete tahák i e-learning, do kterých se můžete kdykoliv podívat."
+
+**Co musí zaznít:** přiznání, že něco přibývá. Bez něj ti nebudou věřit ani zbytek.
 
 ---
 
-## 7:03–7:06 · Co je Growatt (3 min)
+## 7:04–7:06 · Co je Growatt (2 min)
 
-*Bez portálu. Krátce.*
+📺 **PROMÍTÁŠ:** pořád nic, nebo můžeš pustit úvodní stránku e-learningu jako kulisu.
 
 > „Growatt je čínský výrobce střídačů, velký hráč, montuje ho u nás spousta firem. Pro vás je podstatné jediné: **je to další značka, která dělá to samé co SolaX nebo GoodWe.**
 >
-> Poznáte ho jednoduše — zákazník vám přečte, co má napsané na krabici na zdi. Stojí tam **Growatt**. Většinou uvidíte označení začínající **SPH** — to jsou hybridní střídače s baterií, těch bude nejvíc."
-
-> „Jak to funguje, znáte z ostatních značek. Střídač měří, malý wifi klíč posílá data na internet, my se na to díváme v portálu. Portál se jmenuje **OSS**. Zákazník k tomu má mobilní appku, vy máte tenhle web — vidíte to samé, jen vy toho vidíte víc."
+> Poznáte ho jednoduše — zákazník vám přečte, co má napsané na krabici na zdi. Stojí tam **Growatt**. Většinou uvidíte označení začínající **SPH** — to jsou hybridní střídače s baterií, těch bude nejvíc.
+>
+> Jak to funguje, znáte z ostatních značek. Střídač měří, malý wifi klíč posílá data na internet, my se na to díváme v portálu. Ten portál se jmenuje **OSS**. Zákazník k tomu má mobilní appku, vy budete mít tenhle web — vidíte to samé, jen vy toho vidíte víc."
 
 ---
 
 ## 7:06–7:09 · Jak je to poskládané (3 min)
 
-> „Jedna věc na úvod, ať vám portál dává smysl. Je to poskládané ve třech patrech — stejně jako u ostatních značek."
+📺 **PROMÍTÁŠ:** **začni sdílet** → e-learning, **Modul 2 „Datový model"**. Je tam přesně tohle schéma, nemusíš nic kreslit.
+
+> „Teď začnu sdílet obrazovku. Jedna věc na úvod, ať vám ten portál pak dává smysl. Je to poskládané ve třech patrech — stejně jako u ostatních značek."
+
+🖱 Ukaž schéma na obrazovce:
 
 ```
 👤 Zákazník
@@ -105,15 +129,17 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 > „A teď to nejdůležitější, co dneska řeknu. Ten **wifi klíč** může přestat fungovat úplně nezávisle na tom, jestli fotovoltaika jede.
 >
-> Prakticky: když v portálu uvidíte, že instalace **nekomunikuje**, neznamená to, že je rozbitá. Nejčastěji si zákazník změnil heslo od wifi nebo vyměnil router. Fotovoltaika si venku klidně vyrábí dál, jenom nám o tom nepíše."
-
-> „Proč to zdůrazňuju: tohle je rozdíl mezi 'pošleme technika za dvě stě kilometrů' a 'pane Nováku, měnil jste heslo od wifi?'. **Nekomunikuje ≠ rozbité.** Když si z dneška odnesete jednu jedinou větu, ať je to tahle."
+> Prakticky: když v portálu uvidíte, že instalace **nekomunikuje**, neznamená to, že je rozbitá. Nejčastěji si zákazník změnil heslo od wifi nebo vyměnil router. Fotovoltaika si venku klidně vyrábí dál, jenom nám o tom nepíše.
+>
+> Proč to zdůrazňuju: tohle je rozdíl mezi ‚pošleme technika za dvě stě kilometrů' a ‚pane Nováku, měnil jste heslo od wifi?'. **Nekomunikuje ≠ rozbité.** Když si z dneška odnesete jednu jedinou větu, ať je to tahle."
 
 ---
 
 ## 7:09–7:22 · Živá ukázka (13 min)
 
-> „A teď se na to podíváme. Projdeme to tak, jak to budete dělat vy."
+📺 **PROMÍTÁŠ:** **přepni na živý OSS portál.** Tady zůstaneš až do 7:26.
+
+> „A teď se na to podíváme naživo. Projdeme to přesně tak, jak to budete dělat vy."
 
 ### 1) Přihlášení (2 min)
 
@@ -123,7 +149,7 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 🖱 **Ukaž výběr serveru.**
 
-> „— tenhle výběr nahoře. Musí tam být **Other Countries and Regions Globally**. Ano, Česko je 'ostatní země'. Když si vyberete špatně, přihlásíte se, projde to bez chyby — a uvidíte prázdný účet. Žádná hláška, prostě prázdno.
+> „— tenhle výběr nahoře. Musí tam být **Other Countries and Regions Globally**. Ano, Česko je ‚ostatní země'. Když si vyberete špatně, přihlásíte se, projde to bez chyby — a uvidíte prázdný účet. Žádná hláška, prostě prázdno.
 >
 > **Prázdný účet po přihlášení = špatně zvolený server.** Je to v taháku."
 
@@ -133,13 +159,13 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 ### 2) Dohledání zákazníka (4 min)
 
-> „Volá zákazník. První otázka je vždycky stejná: **'Přečtete mi prosím sériové číslo ze střídače?'** Je na displeji nebo na štítku ze strany."
+> „Volá zákazník. První otázka je vždycky stejná: **‚Přečtete mi prosím sériové číslo ze střídače?'** Je na displeji nebo na štítku ze strany."
 
 🖱 `Monitoring & Management` → `Device List` → vlož SN do **Serial Number** → **Inquire**
 
 > „Sériové číslo sem, Enter. A je to. Tohle je devadesát procent toho, co tady budete dělat."
 
-⚠️ **Ukaž záložky nad seznamem** — stojí to 20 sekund a ušetří to hodiny:
+⚠️ 🖱 **Ukaž záložky nad seznamem** — 20 sekund, které ušetří hodiny:
 
 > „Jedna past, na kterou vás radši připravím. Nad seznamem jsou záložky podle typu zařízení. Hybridní střídače — ty s baterií, kterých bude většina — jsou pod záložkou **On-Grid Storage**. Ne pod tou, kde byste je čekali.
 >
@@ -177,13 +203,13 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 🖱 Ukaž **dlaždice s výrobou** a graf
 
-> „Nahoře je výroba — kolik vyrobil dnes, tento měsíc, celkem. Když se zákazník ptá 'kolik mi to včera udělalo', odpověď je tady."
+> „Nahoře je výroba — kolik vyrobil dnes, tento měsíc, celkem. Když se zákazník ptá ‚kolik mi to včera udělalo', odpověď je tady."
 
 🖱 Ukaž **Problem List**
 
 > „A tohle je pro vás užitečné: **Problem List**, seznam poruch. Vidíte, že je prázdný — a to je dobrá zpráva, znamená to, že tahle instalace nikdy neměla problém. Když sem přijdete a bude tam řádek s chybovým kódem, **opíšete ten kód do ticketu**. Co který kód znamená, je v taháku a v e-learningu, nemusíte to znát."
 
-### 5) Detail elektrárny (1 min)
+### 5) Detail elektrárny (1 min — vynechatelné)
 
 🖱 Přejdi na detail elektrárny (Plant)
 
@@ -197,7 +223,9 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 ## 7:22–7:26 · Co s tím dál (4 min)
 
-> „Zákazníka máte, stav vidíte. Co dál? Tohle je nejdůležitější tabulka dneška."
+📺 **PROMÍTÁŠ:** zůstáváš v OSS na nalezeném řádku. Ať mají před očima to konkrétní, o čem mluvíš.
+
+> „Zákazníka máte, stav vidíte. Co dál? Tohle je nejdůležitější věc dneška."
 
 | Co vidíte | Co uděláte |
 |---|---|
@@ -208,13 +236,15 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 
 > „Všimněte si, že na konci každého řádku je **ticket**. To je záměr.
 >
-> **Po vás se nechce, abyste to vyřešili.** Po vás se chce, abyste zákazníka našli, popsali, co vidíte, a předali to dál. Rozdíl mezi ticketem 'nefunguje fotovoltaika' a ticketem 'Growatt SPH, stav Offline, poslední data před dvěma týdny, zákazník měnil router' je pro kolegy ze servisu obrovský.
+> **Po vás se nechce, abyste to vyřešili.** Po vás se chce, abyste zákazníka našli, popsali, co vidíte, a předali to dál. Rozdíl mezi ticketem ‚nefunguje fotovoltaika' a ticketem ‚Growatt SPH, stav Offline, poslední data před dvěma týdny, zákazník měnil router' je pro kolegy ze servisu obrovský.
 >
 > Najít, podívat se, popsat, předat. To je celé."
 
 ---
 
 ## 7:26–7:28 · Kam se obrátit (2 min)
+
+📺 **PROMÍTÁŠ:** přepni na **e-learning**. Otevři, projeď kurzorem sidebar, zavři. **30 sekund, neprocházej ho.**
 
 > „Nic z toho si nemusíte pamatovat. Máte čtyři záchranné sítě."
 
@@ -225,8 +255,6 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 | **Teams** | Náš společný chat. Ptejte se, klidně blbě. |
 | **Ticket** | Eskalace na reklamace nebo technickou podporu. |
 
-🖱 **Ukaž e-learning — 30 sekund.** Otevři ho, projeď kurzorem sidebar s moduly, zavři. **Neprocházej ho.**
-
 > „Tohle je e-learning, který jsem k tomu udělal. Je v něm podrobně všechno, co jsme dnes viděli, plus věci, na které jsme se nedostali — chybové kódy, co dělat u Offline, jak se zákazník přidává do monitoringu.
 >
 > **Neprocházíme ho teď spolu.** Pošlu vám na něj odkaz, je to webová stránka, otevřete si ji kdykoliv v klidu. Není to domácí úkol a nemusíte ho projít celý — je to spíš příručka, do které se podíváte, až budete něco potřebovat.
@@ -236,6 +264,8 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 ---
 
 ## 7:28–7:30 · Závěr a dotazy (2 min)
+
+📺 **PROMÍTÁŠ:** **ukonči sdílení.** Závěr patří očím, ne obrazovce.
 
 > „Shrnu to do tří vět.
 >
@@ -250,7 +280,7 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 ## Připravené odpovědi na dotazy
 
 **„Proč zase další systém?"**
-> „Protože je to jiný výrobce a má vlastní portál — stejně jako SolaX má svůj. Nedá se to sloučit. Ale prakticky v něm budete dělat jednu věc: vyhledávat podle sériového čísla."
+> „Protože je to jiný výrobce a má vlastní portál — stejně jako SolaX má svůj. Sloučit se to nedá, to bych vám lhal. Ale prakticky v něm budete dělat jednu věc: vyhledávat podle sériového čísla."
 
 **„Musíme se to učit nazpaměť?"**
 > „Ne. Proto je tahák a e-learning. Chci, abyste věděli, že to existuje a kde to hledat."
@@ -276,24 +306,24 @@ Tyhle věci **ukaž nebo zmiň jednou větou** a jdi dál. Nerozvádět:
 | Portál nejede | Dojedeš demo na screenshotech v e-learningu — jsou tam všechny obrazovky |
 | Nemůžeš se přihlásit | Nezkoušej třikrát, zamkne se to na 15 minut. Jeď z e-learningu. |
 | Testovací instalace je Offline | Ideální! Ukaž to jako živý příklad „nekomunikuje ≠ rozbité" |
-| **Nestíháš** | Zkrať část 7:03–7:06 a v ukázce vynech bod 5 (detail elektrárny). **Nikdy nekracuj úvod a část „co s tím dál".** |
+| **Nestíháš** | Zkrať část 7:04 a v ukázce vynech bod 5. **Nikdy nekracuj úvod a část „Co s tím dál".** |
 | Máš čas navíc | Vrať se do detailu střídače a ukaž graf výroby za měsíc — hezky se na tom vysvětluje „počasí versus porucha" |
-| Rozjede se debata o zahlcení systémy | Nech ji chvíli běžet, neodbývej ji. Pak: „Souhlasím, a proto je dnešek na půl hodiny a proto po vás nechci, abyste si něco pamatovali." |
+| Rozjede se debata o zahlcení systémy | Nech ji běžet, neodbývej ji — právě jsi jim řekl, že je bereš vážně. Pak: „Přesně proto je dnešek na půl hodiny a proto po vás nechci, abyste si něco pamatovali." |
 
 ---
 
 ## Časový rozpis
 
-| Čas | Část | Min |
-|---|---|---|
-| 7:00 | Úvod — odzbrojení | 3 |
-| 7:03 | Co je Growatt | 3 |
-| 7:06 | Jak je to poskládané + nekomunikuje ≠ rozbité | 3 |
-| 7:09 | **Živá ukázka** | **13** |
-| 7:22 | Co s tím dál — eskalace | 4 |
-| 7:26 | Kam se obrátit | 2 |
-| 7:28 | Závěr a dotazy | 2 |
-| **7:30** | **konec** | **30** |
+| Čas | Část | Promítáš | Min |
+|---|---|---|---|
+| 7:00 | Proč jsme tady — agenda + poctivé přiznání | nic | 4 |
+| 7:04 | Co je Growatt | nic | 2 |
+| 7:06 | Jak je to poskládané | e-learning, modul 2 | 3 |
+| 7:09 | **Živá ukázka** | **OSS portál** | **13** |
+| 7:22 | Co s tím dál — eskalace | OSS, nalezený řádek | 4 |
+| 7:26 | Kam se obrátit | e-learning, 30 s | 2 |
+| 7:28 | Závěr a dotazy | sdílení vypnuto | 2 |
+| **7:30** | **konec** | | **30** |
 
 ### Rozpad ukázky
 
