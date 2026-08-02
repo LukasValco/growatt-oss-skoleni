@@ -30,7 +30,7 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 > **Co si mají odnést:**
 > 1. Rozpoznám Growatt a dohledám instalaci podle sériového čísla.
-> 2. Přečtu, v jakém je stavu — a když nekomunikuje, ověřím po telefonu, jestli elektrárna vyrábí.
+> 2. Přečtu, v jakém je stavu — a když nekomunikuje, ověřím po telefonu, jestli elektrárna vyrábí, a zkusím rekonfiguraci dataloggeru.
 > 3. Vím, kde se nastavuje SOC baterie a přetok do sítě.
 > 4. Vím, co a komu předat.
 
@@ -361,46 +361,55 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 > „Tak. Portál jste viděli, teď to nejdůležitější — **jak s tím naložit u skutečného hovoru.** Tohle je část, kterou byste si z dneška měli odnést, i kdybyste na všechno ostatní zapomněli."
 
-| Zjištěný stav | Postup |
-|---|---|
-| **Normal**, zákazník hlásí nízkou výrobu | Historical Data → `Ppv`. Porovnejte s tím, co hlásí. Ticket. |
-| **Abnormal** | Problem List → opište kód. Případně Export Fault Log. Ticket. |
-| **Offline** | Ověřte po telefonu, jestli elektrárna vyrábí — viz níže. Ticket i tak. |
-| Nejasná situace | Ticket, případně dotaz na Teams. |
+### Nejdřív si shrňme stavy
 
-> „Projdu ty čtyři situace, do kterých se dostanete.
->
-> **První: stav je Normal, ale zákazník tvrdí, že mu to málo vyrábí.** Tady si ho nejdřív poslechněte — ptejte se, **jak dlouho** to trvá a **o kolik** je to méně. Pak se podívejte do Historical Data na sloupec `Ppv` a do dlaždice s výrobou. Buď uvidíte, že opravdu vyrábí míň než dřív, nebo uvidíte, že vyrábí normálně a zákazník jen srovnává červenec s listopadem. V obou případech založte ticket, ale připište, co jste zjistili — tím kolegům ušetříte půl hodiny.
->
-> **Druhá: stav je Abnormal.** To znamená, že střídač sám hlásí konkrétní závadu. Otevřete Problem List, **opište chybový kód** a čas, kdy k závadě došlo. Pokud jich je víc, stáhněte Export Fault Log. Ticket. A zákazníkovi řekněte pravdu — že jeho střídač hlásí závadu, kterou předáváte technikům, a někdo se mu ozve.
->
-> **Třetí: stav je Offline.** To je ta situace, o které jsme mluvili — nedorazila data. Podívejte se na Lastest Upgrade Time, ať víte, jak dlouho už. A pak — a tohle je ta nejužitečnější věc dneška — si po telefonu ověříte, jestli elektrárna vyrábí. Za chvíli vám řeknu jak.
->
-> **A čtvrtá, nejčastější ze všech: nevíte.** Něco nesedí, něco nevypadá standardně, něčemu nerozumíte. To je naprosto v pořádku. Založte ticket a napište do něj, co vidíte. Nebo se zeptejte na Teams. **Nikdo po vás nechce, abyste opravovali fotovoltaiku po telefonu.**"
+> „Zopakuji ty stavy pohromadě, ať je máte v jednom bloku. Jsou to ty popisky z lišty nad seznamem zařízení:"
 
-### Jak po telefonu ověřit, že elektrárna vyrábí
+| Stav | Co znamená | Vaše reakce |
+|---|---|---|
+| **Online** / ve sloupci State **Normal** | Střídač běží normálně | V pořádku |
+| **Standby** | Klidový režim — nevyrábí, ale nic nehlásí | Obvykle normální |
+| **Self Test** | Probíhá samotest | Přechodný stav |
+| **Offline** | Nedorazila data | **Komunikace** — nejčastější případ |
+| **Abnormal** | Střídač hlásí závadu | **Porucha** — kód do ticketu |
 
-*Toto je nejužitečnější věc pro stav Offline — v portálu nevidíte nic, ale zákazník stojí u měniče.*
+> „Pro vás jsou v praxi podstatné **dva z nich**: **Offline** a **Abnormal**. Online, Standby a Self Test znamenají, že je střídač v pořádku."
 
-> „Vrátím se k tomu stavu Offline, protože tam máte v ruce nástroj, o kterém možná nevíte.
->
-> Když je instalace Offline, jste v portálu **slepí**. Data nedorazila, takže nevíte vůbec nic — ani jestli elektrárna vyrábí, ani jestli má závadu. Ale máte na telefonu zákazníka, který může jít k měniči a podívat se.
->
-> Poproste ho, ať se podívá na **kontrolku a displej** na měniči. Podle manuálu Growattu platí jednoduché pravidlo: **když měnič pracuje normálně, kontrolka svítí zeleně a na displeji jsou běžné provozní údaje.** Pokud je signalizace **červená**, jde o závadu a je to případ pro servis.
->
-> Takže: **zelená kontrolka a normální displej znamená, že elektrárna běží** a problém je jenom v komunikaci. To je hovor, který dořešíte po telefonu — zeptáte se na wi-fi, na router, na to, jestli se něco neměnilo — a nikam se nejezdí. Naopak **červená znamená skutečnou závadu** a je to úplně jiný ticket.
->
-> Tímhle jedním dotazem tedy odlišíte dvě situace, které v portálu vypadají úplně stejně."
+### Tři situace, do kterých se dostanete
 
-### Co napsat do ticketu
+> „Vy jste **poruchová linka**, takže k vám nechodí dotazy typu ‚kolik jsem loni vyrobil'. K vám volá člověk, kterému něco nefunguje a chce to řešit hned. Projdu tři situace, které vás reálně čekají."
 
-> „A poslední věc k eskalaci. Když případ předáváte, snažte se do ticketu dát tohle:
+> „**První a nejčastější: stav Offline.** Nedorazila data. V portálu jste v tu chvíli slepí — nevíte, jestli elektrárna běží, nebo má závadu. Za chvíli vám řeknu, jak to zjistíte.
 >
-> **Značku a typ střídače**, tedy Growatt a označení z portálu. **Sériové číslo.** **Stav**, který jste viděli. Když je Offline, tak i **jak dlouho už**. Když je Abnormal, tak **chybový kód**. Co říkal zákazník a co jste s ním ověřili — třeba jestli měnil router nebo jak svítí kontrolka.
+> **Druhá: stav Abnormal.** Střídač sám hlásí konkrétní závadu. Otevřete **Problem List**, opište **chybový kód** a čas, kdy k závadě došlo. Když jich je víc, stáhněte **Export Fault Log**. Zákazníkovi řekněte pravdu — jeho střídač hlásí závadu, kterou předáváte technikům, a někdo se mu ozve.
 >
-> Rozdíl mezi ticketem, kde stojí *‚nefunguje fotovoltaika'*, a ticketem, kde stojí *‚Growatt SPH, sériové číslo takové a takové, stav Offline, poslední data před dvěma týdny, zákazník měnil router, kontrolka na měniči svítí zeleně'* — ten rozdíl je pro kolegy ze servisu **zásadní**. V tom druhém případě už vědí, co mají dělat, a nemusí to celé zjišťovat znovu.
+> **Třetí: stav je Normal, ale zákazník hlásí problém.** Třeba že mu nejde záloha, nebo že baterie nedělá, co má. Tady máte v portálu čím si to podložit — v dlaždicích a v telemetrii **vidíte výrobu, aktuální výkony i stav baterie**. Nemusíte to umět vyhodnotit do hloubky, ale můžete do ticketu napsat, co jste viděli.
 >
-> Takže znovu, ve čtyřech slovech: **dohledat, ověřit stav, popsat, předat.** To je celý rozsah toho, co se po vás chce."
+> A pak je čtvrtá možnost, nejčastější ze všech: **nevíte.** Něco nesedí, něčemu nerozumíte. To je naprosto v pořádku. Ticket, nebo dotaz na Teams. **Nikdo po vás nechce, abyste opravovali fotovoltaiku po telefonu.**"
+
+### Stav Offline — co s tím po telefonu
+
+*Tohle je nejužitečnější část celého školení.*
+
+> „Vrátím se k Offline, protože tam toho zvládnete nejvíc.
+>
+> **Krok jedna — zjistěte, jestli vůbec vyrábí.** Poproste zákazníka, ať se podívá na **kontrolku a displej** na měniči. Podle manuálu Growattu platí: **když měnič pracuje normálně, kontrolka svítí zeleně a na displeji jsou běžné provozní údaje.** Když je signalizace **červená**, jde o závadu a je to případ pro servis.
+>
+> Takže zelená kontrolka znamená, že **elektrárna běží a problém je jen v komunikaci**. Nikam se nejezdí.
+>
+> **Krok dvě — zeptejte se na wi-fi.** Neměnil jste heslo? Nevyměnil jste router? Nemá nové jméno sítě? Tohle jsou příčiny v naprosté většině případů.
+>
+> **Krok tři — rekonfigurace dataloggeru.** A to je přesně ten postup, který znáte od SolaXu: zákazník si přes mobilní aplikaci **znovu nastaví ten wi-fi adaptér na domácí síť**. U Growattu se ta aplikace jmenuje **ShinePhone**. **Návod na rekonfiguraci vám k tomu dodáme**, abyste zákazníka mohli provést krok za krokem po telefonu, stejně jako to děláte teď u jiných značek.
+>
+> Jedna věc, kterou u toho hlídejte, protože je to nejčastější důvod, proč se párování nepovede: **datalogger umí jen pásmo 2,4 gigahertzu, ne pětku.** Většina moderních routerů má obě pásma pod stejným názvem sítě a telefon se sám přepne na pětku. Pak to prostě neprojde a nikdo neví proč."
+
+### Ticket
+
+> „A k ticketům to nejjednodušší pravidlo: **čím lepší popis, tím lépe pro toho, kdo to bude řešit po vás.**
+>
+> Napište, co jste viděli — značku, sériové číslo, stav, u Offline jak dlouho už, u Abnormal chybový kód. A co jste ověřili se zákazníkem, třeba jak svítí kontrolka nebo jestli měnil router.
+>
+> Kolegovi ze servisu tím ušetříte to, že by musel všechno zjišťovat znovu."
 
 ---
 
@@ -437,7 +446,7 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 >
 > **Za prvé** — Growatt rozpoznáte podle štítku, instalaci dohledáte podle **sériového čísla měniče** v portálu `oss.growatt.com`.
 > **Za druhé** — ve sloupci **State** přečtete stav (zdravý měnič má *Normal*) a v detailu zařízení výrobu, napětí na fázích i stav baterie.
-> **Za třetí** — když je instalace Offline, necháte si po telefonu popsat kontrolku a displej na měniči. Zelená znamená, že vyrábí a jde jen o komunikaci.
+> **Za třetí** — když je instalace Offline, necháte si po telefonu popsat kontrolku na měniči. Zelená znamená, že vyrábí a jde jen o komunikaci; pak se řeší wi-fi a rekonfigurace dataloggeru, na kterou dostanete návod.
 > **Za čtvrté** — minimální nabití baterie (*Load First → Discharge Stopped Soc*) a přetok do sítě (*Set Exportlimit*) se mění přes **Set the device**; přetok jen na základě zadání.
 >
 > Tolik ode mě. Podívám se do chatu — máte nějaké dotazy?"
@@ -489,7 +498,7 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 | 7:04 | Co je Growatt | beze změny | 2 |
 | 7:06 | Uspořádání a dvě sériová čísla | e-learning, modul 2 | 3 |
 | 7:09 | **Živá ukázka** | **portál OSS** | **13** |
-| 7:22 | Jak s tím naložit + ověření po telefonu | detail měniče | 4 |
+| 7:22 | Stavy, tři situace, Offline po telefonu, ticket | detail měniče | 4 |
 | 7:26 | Kam se obrátit | e-learning, moduly | 2 |
 | 7:28 | Závěr a dotazy | e-learning, úvod | 2 |
 | **7:30** | **konec** | | **30** |
