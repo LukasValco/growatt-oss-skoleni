@@ -13,7 +13,8 @@
 | Uživatel (End User) | `Tusl01` |
 | Elektrárna (Plant) | `Dubné 93` |
 | Typ | SPH 4000-10000TL3 BH-UP · 10 000 W |
-| Druhý měnič v instalaci | `TPJ4CD201V` |
+| Druhý měnič v instalaci | `TPJ4CD201V` · datalogger `XGD5BLB26G` |
+| Alias prvního měniče | `Dehtáře 4` |
 
 ---
 
@@ -146,11 +147,11 @@ Zákazník (End User)          Tusl01
 
 > „Adresa `oss.growatt.com`, najdete ji v taháku. Upozorním na jedinou věc —"
 
-🖱 **Ukaž výběr serveru.**
+🖱 **Ukaž čtyři tlačítka nad přihlašovacím oknem:** Mainland of China · United States & Canada · **Other Countries and Regions Globally** · Australia & New Zealand
 
-> „— na tento výběr. Musí být zvolena možnost **Other Countries and Regions Globally**; Česká republika spadá do této skupiny. Při nesprávné volbě se přihlásíte bez chybové hlášky, ale uvidíte prázdný účet. Systém vás na nic neupozorní.
+> „— na tahle čtyři tlačítka nad přihlašovacím oknem. Vybírá se tam server podle regionu a pro nás platí třetí zleva: **Other Countries and Regions Globally**. Když je zvolený, svítí zeleně.
 >
-> **Prázdný účet po přihlášení znamená nesprávně zvolený server.**"
+> Při nesprávné volbě se přihlásíte bez chybové hlášky, ale uvidíte prázdný účet. Systém vás na nic neupozorní. **Prázdný účet po přihlášení tedy znamená nesprávně zvolený server.**"
 
 🖱 Projeď kurzorem hlavní menu.
 
@@ -166,11 +167,19 @@ Zákazník (End User)          Tusl01
 
 > „Jedna věc, která by vás mohla zdržet: nad seznamem jsou záložky podle typu zařízení. Hybridní střídače najdete pod záložkou **On-Grid Storage**, nikoli pod tou, kterou byste čekali. Pokud tedy vyhledáváte a nic nenajdete, zkuste nejdřív přepnout záložku."
 
-🖱 Ukaž **State** a **Last update**. Kurzorem ukazuj sloupce.
+🖱 Ukaž **řádek s počítadly** nad seznamem: `Abnormal: 0 · Offline: 0 · Standby: 0 · Self Test: 0 · Online: 2 · Total: 2`
 
-> „Ve výsledku vás nejdřív zajímají dva sloupce. **State** — provozní stav, tady **Normal**, tedy střídač běží. Můžete narazit i na **Waiting**, což znamená, že čeká na dostatečné osvětlení, na **Fault**, tedy hlášenou závadu, a na **Offline**, kdy nedorazila data.
+> „Ještě než se podíváme na samotný řádek — všimněte si téhle lišty nad seznamem. Je to rychlý přehled, kolik zařízení je v jakém stavu. **Abnormal** znamená hlášenou závadu, **Offline** že nedorazila data, **Standby** klidový režim, **Self Test** probíhající samotest a **Online** normální provoz. U nás jsou dvě zařízení online a nula ve všech ostatních — instalace je tedy v pořádku."
+
+🖱 Ukaž sloupce **State** a **Lastest Upgrade Time**. Kurzorem ukazuj, o kterém mluvíš.
+
+> „A teď pozor na jednu drobnost, která mate. V té liště nahoře se stav jmenuje **Online**, ale ve sloupci **State** u konkrétního řádku je napsáno **Normal**. Je to totéž — portál jen na dvou místech používá jiné slovo. Zdravý střídač má ve sloupci State **Normal**.
 >
-> A **Last update** — kdy naposledy data dorazila. U stavu Offline vám tenhle údaj řekne, jak dlouho už to trvá."
+> Vedle je **Lastest Upgrade Time**, tedy čas poslední aktualizace údajů. Když je zařízení Offline, právě tenhle údaj vám řekne, jak dlouho už mlčí. Deset minut je zanedbatelné, tři týdny znamenají problém."
+
+🖱 Projeď kurzorem zbytek řádku.
+
+> „Ve stejném řádku je i typ měniče, elektrárna, uživatel, sériové číslo dataloggeru, dnešní výroba a aktuální výkon. Máte tedy celou identifikaci na jednom místě, aniž byste museli někam proklikávat."
 
 ### 3) Detail měniče — co se z něj dá vyčíst (5 min)
 
@@ -264,7 +273,7 @@ Zákazník (End User)          Tusl01
 | Zjištěný stav | Postup |
 |---|---|
 | **Normal**, zákazník hlásí nízkou výrobu | Historical Data → `Ppv`. Porovnejte s tím, co hlásí. Ticket. |
-| **Fault** | Problem List → opište kód. Případně Export Fault Log. Ticket. |
+| **Abnormal** | Problem List → opište kód. Případně Export Fault Log. Ticket. |
 | **Offline** | Ověřte po telefonu, jestli elektrárna vyrábí — viz níže. Ticket i tak. |
 | Nejasná situace | Ticket, případně dotaz na Teams. |
 
@@ -308,7 +317,7 @@ Zákazník (End User)          Tusl01
 > „Shrnu to do čtyř bodů.
 >
 > **Za prvé** — Growatt rozpoznáte podle štítku, instalaci dohledáte podle **sériového čísla měniče** v portálu `oss.growatt.com`.
-> **Za druhé** — v detailu zařízení přečtete stav, výrobu, napětí na fázích i stav baterie.
+> **Za druhé** — ve sloupci **State** přečtete stav (zdravý měnič má *Normal*) a v detailu zařízení výrobu, napětí na fázích i stav baterie.
 > **Za třetí** — když je instalace Offline, necháte si po telefonu popsat kontrolku a displej na měniči. Zelená znamená, že vyrábí a jde jen o komunikaci.
 > **Za čtvrté** — minimální nabití baterie (*Load First → Discharge Stopped Soc*) a přetok do sítě (*Set Exportlimit*) se mění přes **Set the device**; přetok jen na základě zadání.
 >
@@ -371,6 +380,6 @@ Zákazník (End User)          Tusl01
 | Bod | Co | Min |
 |---|---|---|
 | 1 | Přihlášení, výběr serveru, menu | 2 |
-| 2 | Dohledání `TPJ4CD200Z`, záložky, State a Last update | 3 |
+| 2 | Dohledání `TPJ4CD200Z`, záložky, počítadla, State a Lastest Upgrade Time | 3 |
 | 3 | Detail měniče — hlavička, dlaždice, Problem List, grafy, Historical Data | 5 |
 | 4 | `Set the device` — disclaimer, SOC baterie, Set Exportlimit | 4 |
