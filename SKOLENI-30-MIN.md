@@ -287,19 +287,17 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 | Sloupec | Co říká |
 |---|---|
-| `Status` | provozní režim — u zdravé instalace `PV Bat Online`, tedy běží panely i baterie |
+| `Status` | provozní režim — `PV Bat Online` znamená, že běží panely i baterie |
 | `Ppv`, `Vpv1`, `Ppv1` | **výkon a napětí z panelů** — tady vidíte, že elektrárna skutečně vyrábí |
 | `Vac1`–`Vac3`, `Fac` | **sdružená napětí mezi fázemi** (~400 V) a frekvence sítě |
-| `EpsVac1`–`EpsVac3` | napětí na **zálohovaném výstupu** (~230 V na fázi) |
+| `EpsVac1`–`EpsVac3` | napětí na **zálohovaném výstupu** — tady už je to na fázi, ~230 V |
 | `SOC`, `VBat` | nabití a napětí baterie |
 
-> „**Status** je provozní režim. Tady je `PV Bat Online`, tedy běží panely i baterie. Kdyby tam stálo jen `Bat Online`, znamenalo by to, že jede jen baterie a z panelů nic nechodí.
+> „**Status** je provozní režim. Tady je `PV Bat Online` — ten popisek říká sám, co běží: panely i baterie. A vidíte to i v datech vedle: `Ppv` je tři sta dvacet wattů, takže z panelů něco teče, a baterie zrovna pracuje.
 >
-> **Ppv a Vpv** jsou výkon a napětí z panelů — když se vás někdo zeptá, jestli elektrárna opravdu vyrábí, odpověď je tady, a je to údaj přímo ze střídače. **Vac1 až Vac3** je napětí sítě a **Fac** frekvence, takže dotaz na napětí vyřešíte odsud.
+> **Ppv a Vpv** jsou výkon a napětí z panelů — když se vás někdo zeptá, jestli elektrárna opravdu vyrábí, odpověď je tady, a je to údaj přímo ze střídače.
 >
-> A tady si dejte pozor na jednu věc, o kterou se dá zakopnout. Uvidíte tam čísla kolem **čtyř set deseti voltů** a mohli byste si říct, že je to strašné přepětí. Není. **Growatt v těchhle sloupcích uvádí sdružené napětí, tedy napětí mezi dvěma fázemi, ne mezi fází a nulou.** Naše síť má sdruženě čtyři sta voltů a na fázi dvě stě třicet. Když tedy chcete napětí na fázi, **vydělte to číslo 1,73** — ze čtyř set deseti vám vyjde dvě stě třicet sedm voltů, což je naprosto v pořádku.
->
-> Že je to opravdu tak, poznáte i podle sloupců **EpsVac** o kus dál — to je napětí na zálohovaném výstupu a tam jsou čísla kolem dvou set třiceti. Stejná instalace, stejný okamžik, jednou sdruženě a jednou na fázi.
+> **Vac1 až Vac3** je napětí sítě a **Fac** frekvence. Jedna věc k tomu: uvidíte tam čísla kolem **čtyř set deseti voltů**, ne dvě stě třicet. Není to přepětí — Growatt tady uvádí **napětí mezi fázemi**, ne mezi fází a nulou. Když chcete napětí na fázi, **vydělte to 1,73**. Ze čtyř set deseti vyjde dvě stě třicet sedm, což je v pořádku.
 >
 > A **SOC** s **VBat** je nabití a napětí baterie."
 
