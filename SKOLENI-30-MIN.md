@@ -43,14 +43,15 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 ## Plán obrazovky
 
-| Čas | Na sdílené obrazovce |
-|---|---|
-| 7:00 | E-learning — úvodní stránka |
-| 7:05 | E-learning → **Modul 2 „Datový model"** |
-| 7:08 | **Živý portál OSS** |
-| 7:22 | OSS — detail měniče `TPJ4CD200Z` |
-| 7:26 | E-learning — přehled modulů |
-| 7:28 | E-learning — úvodní stránka |
+| Čas | Okno | Kde přesně |
+|---|---|---|
+| 7:00 | E-learning | **úvodní stránka** (modul „Úvod") |
+| 7:04 | E-learning | beze změny |
+| 7:06 | E-learning | modul **`2` Datový model** → schéma hierarchie, pak sekce *Co je Datalogger* |
+| 7:09 | **Portál OSS** | přihlašovací stránka → Device List → detail měniče |
+| 7:22 | Portál OSS | zůstáváš v **Device Detail** `TPJ4CD200Z` |
+| 7:26 | E-learning | **levé menu s moduly** |
+| 7:28 | E-learning | zpět na **úvodní stránku** |
 
 ---
 
@@ -70,29 +71,39 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 ---
 
-## 7:00–7:03 · Úvod (3 min)
+## 7:00–7:04 · Úvod (4 min)
 
-📺 **NA OBRAZOVCE:** e-learning, úvodní stránka. Sdílení spusť ještě před začátkem.
+📺 **NA OBRAZOVCE:** e-learning, **úvodní stránka** (modul „Úvod" s domečkem). Sdílení spusť ještě před začátkem, ať mají na co koukat.
 
-> „Dobré ráno. Dnešní téma je nový typ střídače, se kterým se na lince můžete od podzimu setkat — značka **Growatt**. V září spouštíme nabídku servisu pro tyto střídače, takže od října můžete začít dostávat hovory od zákazníků, kteří mají doma Growatta.
+### Téma a co je na obrazovce
+
+> „Dobré ráno. Dnešní téma je nový typ střídače, se kterým se na lince můžete od podzimu setkat — značka **Growatt**. V září spouštíme nabídku servisu pro tyto střídače, takže od října vám mohou volat zákazníci, kteří mají doma Growatta.
 >
-> Projdeme čtyři věci. **Co Growatt je** a jak ho rozpoznáte. **Jak dohledáte instalaci** v jejich monitorovacím portálu. **Co si z portálu přečtete** — stav, výrobu, napětí. A **kde se nastavují základní parametry**, jako je minimální nabití baterie nebo přetok do sítě. Vše si ukážeme na živé instalaci.
+> To, co teď vidíte na obrazovce, je **e-learning**, který jsem k tomu připravil. Odkaz na něj vám rozešlu, takže ho budete mít k dispozici. **Dnes ho neprocházíme celý** — beru si ho jen jako pomůcku a promítnu z něj dvě tři místa. Je to příručka na později, ne úkol na dnešek.
+>
+> Program má čtyři části. **Co Growatt je** a jak ho rozpoznáte. **Jak dohledáte instalaci** v jejich monitorovacím portálu. **Co si z portálu přečtete** — stav, výrobu, napětí. A **kde se nastavují základní parametry**, jako minimální nabití baterie nebo přetok do sítě. Většinu si ukážeme naživo v portálu.
 >
 > Dotazy prosím pište průběžně do chatu, budu ho sledovat."
 
-*Krátká odmlka, pak přímo k námitce.*
+### Otevřeně k tomu, co jim přibývá
 
-> „Ještě než začneme — chci pojmenovat jednu věc otevřeně. Ano, přibývá vám další značka a další portál. Nebudu tvrdit opak; vím, s kolika systémy denně pracujete.
+*Až po programu. Nejdřív musí vědět, o čem se bavíme.*
+
+> „Ještě než začneme, chci otevřeně pojmenovat dvě věci.
 >
-> Co ale mohu upřesnit, je rozsah. Nebudete v tom portálu nic opravovat a nemusíte si nic pamatovat zpaměti — dostanete tahák i e-learning. A není to od dneška: první reálné instalace očekáváme v říjnu, takže máte zhruba dva měsíce."
+> **Za prvé:** ano, přibývá vám další značka a další portál. Nebudu tvrdit opak — vím, s kolika systémy denně pracujete. Co ale mohu upřesnit, je rozsah. Nebudete v tom portálu nic opravovat a nemusíte si nic pamatovat zpaměti; dostanete tahák i tenhle e-learning.
+>
+> **Za druhé, a to považuji za podstatnější:** Growatt je **třetí a zároveň poslední značka**, kterou do servisu přidáváme. Mám to potvrzené. Takže tímhle to končí, žádný další portál už nepřijde.
+>
+> A počty nebudou velké. Očekáváme spíš **nižší jednotky instalací**, ne stovky. První reálné hovory nejdřív v říjnu, takže máte zhruba dva měsíce."
 
-**Co musí zaznít:** otevřené přiznání, že něco přibývá. Bez něj nebude zbytek působit věrohodně.
+**Co musí zaznít:** třetí a poslední značka · nižší počty · e-learning dostanou a dnes ho neprocházíme. Tyhle tři věty rozhodují o tom, jestli si poslechnou zbytek.
 
 ---
 
-## 7:03–7:05 · Co je Growatt (2 min)
+## 7:04–7:06 · Co je Growatt (2 min)
 
-📺 **NA OBRAZOVCE:** beze změny.
+📺 **NA OBRAZOVCE:** beze změny — pořád úvodní stránka e-learningu.
 
 > „Growatt je čínský výrobce střídačů, patří mezi největší na trhu a v Česku ho instaluje řada montážních firem. Pro vaši práci je podstatné, že **plní stejnou funkci jako SolaX nebo GoodWe.**
 >
@@ -102,46 +113,45 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 ---
 
-## 7:05–7:08 · Uspořádání a dvě sériová čísla (3 min)
+## 7:06–7:09 · Uspořádání a dvě sériová čísla (3 min)
 
-📺 **NA OBRAZOVCE:** e-learning → **Modul 2 „Datový model"**.
+📺 **NA OBRAZOVCE:** v e-learningu klikni v levém menu na **`2` Datový model**. Zůstaň nahoře u sekce **„Hierarchie: End User → Plant → Device"** — je tam nakreslené schéma.
 
-> „Přepnu na schéma. Systém má tři úrovně, stejně jako u ostatních značek."
+> „Přepnu na druhý modul e-learningu, na schéma. Systém má tři úrovně, stejně jako u ostatních značek: zákazník, jeho elektrárna a pod ní zařízení — střídač a komunikační modul."
 
-```
-Zákazník (End User)          Tusl01
-   └── elektrárna (Plant)    Dubné 93
-         └── střídač (Device) + komunikační modul (Datalogger)
-```
+🖱 Ukaž schéma na obrazovce a projeď ho kurzorem shora dolů.
 
-### Dvě různá sériová čísla — nepleťte si je
+### Dvě různá sériová čísla
 
-> „Tady dávejte pozor, protože jsou v tom dvě různá čísla a snadno se popletou."
+📺 **NA OBRAZOVCE:** sjeď v témže modulu níž na sekci **„Co je Datalogger a proč je důležitý"** — je tam tabulka a rámeček *„Pozor! SN měniče ≠ SN dataloggeru"*.
 
-| | Kde ho zákazník najde | Naše instalace |
-|---|---|---|
-| **SN měniče** | typový štítek **na boku měniče** | `TPJ4CD200Z` |
-| **SN dataloggeru** | štítek **na wi-fi adaptéru**, spolu s Check Code | `XGD5BLB26M` |
-
-> „Obě jsou desetimístná, obě obsahují písmena i číslice, ale patří jinému zařízení. **Vy budete vyhledávat podle sériového čísla měniče.** Číslo dataloggeru potřebujete jen tehdy, když se instalace zakládá do monitoringu — a to nebude vaše agenda, dělá to montážní firma.
+> „Sjedu o kousek níž. Tady dávejte pozor, protože jsou v tom **dvě různá sériová čísla** a snadno se popletou.
 >
-> Zákazník ho najde na štítku na boku měniče. Pokud tam nedosáhne nebo je štítek špatně čitelný, dá se hledat i podle jména nebo názvu elektrárny."
+> **Sériové číslo měniče** je na typovém štítku na boku měniče — to je číslo, se kterým budete pracovat vy. **Sériové číslo dataloggeru** je na štítku wi-fi adaptéru a je k němu ještě takzvaný Check Code. Obě jsou desetimístná, obě obsahují písmena i číslice, ale patří jinému zařízení.
+>
+> Číslo dataloggeru budete potřebovat jen výjimečně — používá se, když se instalace zakládá do monitoringu, a to dělá montážní firma. **Vy vyhledáváte podle sériového čísla měniče.**
+>
+> Za chvíli si obě čísla ukážu přímo v portálu, kde jsou vedle sebe v jednom řádku."
 
 ### Komunikace není totéž co výroba
 
-> „A nyní věc, kterou už asi znáte z jiných značek, ale pro jistotu ji zopakuji. Ten komunikační modul může přestat fungovat **nezávisle** na tom, zda elektrárna vyrábí.
+📺 **NA OBRAZOVCE:** beze změny, pořád modul 2.
+
+> „A ještě jedna věc, kterou už asi znáte z jiných značek, ale pro jistotu ji zopakuji. Ten komunikační modul může přestat fungovat **nezávisle** na tom, zda elektrárna vyrábí.
 >
 > Když v portálu uvidíte, že instalace nekomunikuje, nemusí to znamenat závadu. Nejčastější příčinou je změna hesla k wi-fi nebo výměna routeru. Elektrárna přitom může normálně vyrábět, jen o sobě neodesílá data. Za chvíli si řekneme, jak si to po telefonu ověříte."
 
 ---
 
-## 7:08–7:22 · Živá ukázka (14 min)
+## 7:09–7:22 · Živá ukázka (13 min)
 
-📺 **NA OBRAZOVCE:** přepni na **živý portál OSS**.
+📺 **NA OBRAZOVCE:** přepni na **druhé okno prohlížeče — živý portál OSS**, přihlašovací stránku.
 
 > „Nyní přepnu do portálu a projdeme to tak, jak to budete dělat vy."
 
 ### 1) Přihlášení (2 min)
+
+📺 **NA OBRAZOVCE:** přihlašovací stránka `oss.growatt.com` — černé pozadí, vpravo bílé přihlašovací okno.
 
 🖱 `oss.growatt.com`
 
@@ -153,13 +163,17 @@ Zákazník (End User)          Tusl01
 >
 > Při nesprávné volbě se přihlásíte bez chybové hlášky, ale uvidíte prázdný účet. Systém vás na nic neupozorní. **Prázdný účet po přihlášení tedy znamená nesprávně zvolený server.**"
 
-🖱 Projeď kurzorem hlavní menu.
+📺 **NA OBRAZOVCE:** po přihlášení — úvodní obrazovka portálu, vlevo tmavé svislé menu.
 
-> „Pracovat budete prakticky jen s položkou **Monitoring and Management**."
+🖱 Projeď kurzorem **levé svislé menu**.
 
-### 2) Dohledání instalace (3 min)
+> „Po přihlášení je vlevo menu. Pracovat budete prakticky jen s položkou **Monitoring and Management** — pod ní jsou Plant List, Device List a End Users. Ostatní položky pro vaši práci nejsou podstatné."
 
-🖱 `Monitoring & Management` → `Device List` → **On-Grid Storage** → pole **Serial Number** → vlož `TPJ4CD200Z` → **Inquire**
+### 2) Dohledání instalace (2 min)
+
+📺 **NA OBRAZOVCE:** `Monitoring & Management` → **`Device List`** → záložka **On-Grid Storage**.
+
+🖱 Vlož `TPJ4CD200Z` do pole **Serial Number** → **Inquire**
 
 > „Volá zákazník, přečte sériové číslo ze štítku. Vložím ho do pole Serial Number, potvrdím. Výsledek je okamžitý."
 
@@ -183,7 +197,9 @@ Zákazník (End User)          Tusl01
 
 ### 3) Detail měniče — co se z něj dá vyčíst (5 min)
 
-🖱 **Dvojklik** na zařízení `TPJ4CD200Z`
+📺 **NA OBRAZOVCE:** **Device Detail** měniče `TPJ4CD200Z` — otevřeš ho dvojklikem na řádek.
+
+🖱 **Dvojklik** na řádek `TPJ4CD200Z`
 
 > „Dvojklikem se dostanu do detailu zařízení. Tady je toho k vidění nejvíc, projdeme to shora."
 
@@ -221,6 +237,8 @@ Zákazník (End User)          Tusl01
 > „Když se vás tedy někdo zeptá, jestli má střídač napětí na síti, odpověď najdete ve sloupcích **Vac1 až Vac3**. A jestli vyrábí, poznáte podle sloupce **Ppv**."
 
 ### 4) Kde se mění nastavení (4 min)
+
+📺 **NA OBRAZOVCE:** pořád **Device Detail** — tlačítka jsou vpravo nahoře v sekci *Device information overview*.
 
 🖱 Ukaž tlačítka vpravo nahoře: **Editing device · Set the device · Set datalogger · Delete device**
 
@@ -293,7 +311,7 @@ Zákazník (End User)          Tusl01
 
 ## 7:26–7:28 · Kam se obrátit (2 min)
 
-📺 **NA OBRAZOVCE:** e-learning, přehled modulů. Cca 30 sekund, **neprocházej ho**.
+📺 **NA OBRAZOVCE:** přepni zpět na **okno s e-learningem** a projeď kurzorem **levé menu s moduly**. Cca 30 sekund, **neprocházej ho**.
 
 | Zdroj | K čemu |
 |---|---|
@@ -302,9 +320,9 @@ Zákazník (End User)          Tusl01
 | **Teams** | Společný chat pro dotazy |
 | **Ticket** | Eskalace na reklamace nebo technickou podporu |
 
-> „Nyní přepnu na e-learning, který jsem k tomu připravil. Je v něm podrobně vše, co jsme dnes viděli, plus témata, na která jsme se nedostali — chybové kódy, postup u stavu Offline, zakládání instalace do monitoringu.
+> „Přepnu zpátky na e-learning, o kterém jsem mluvil na začátku. Vidíte v menu, že má sedm modulů — je v něm podrobně vše, co jsme dnes viděli, plus témata, na která jsme se nedostali: chybové kódy, postup u stavu Offline, zakládání instalace do monitoringu.
 >
-> **Neprocházíme ho teď společně.** Rozešlu vám odkaz, je to webová stránka, otevřete si ji kdykoli. Není to úkol a není nutné projít ho celý — je to příručka.
+> Jak jsem říkal, **neprocházíme ho teď společně** a není to úkol. Rozešlu vám odkaz, otevřete si ho kdykoli. Je to příručka, do které se podíváte, až budete něco potřebovat.
 >
 > A pokud v něm něco nenajdete, doplníme to. Buď rozšíříme tahák, nebo připravíme krátký návod. Stačí napsat na Teams."
 
@@ -312,7 +330,7 @@ Zákazník (End User)          Tusl01
 
 ## 7:28–7:30 · Závěr a dotazy (2 min)
 
-📺 **NA OBRAZOVCE:** úvodní stránka e-learningu.
+📺 **NA OBRAZOVCE:** klikni v e-learningu na první položku menu — **úvodní stránku**.
 
 > „Shrnu to do čtyř bodů.
 >
@@ -356,7 +374,7 @@ Zákazník (End User)          Tusl01
 | Portál není dostupný | Dokonči ukázku na snímcích v e-learningu |
 | Nepodaří se přihlásit | Neopakuj pokusy, po pěti se účet zamkne na 15 minut |
 | Ztratíš se v dialogu `Set Hybrid Inverter` | Je dlouhý. Když nenajdeš položku do deseti sekund, řekni „Podrobný návod k nastavení připravíme zvlášť" a zavři ho. |
-| **Nestíháš** | Zkrať bod 3 ukázky (grafy). **Nezkracuj úvod, nastavení ani část „Jak s tím naložit".** |
+| **Nestíháš** | V bodě 3 vynech porovnávací graf a detail elektrárny. **Nezkracuj úvod, nastavení ani část „Jak s tím naložit".** |
 | Máš čas navíc | V Historical Data ukaž `Vpv2`/`Ppv2` — jsou nulové, protože je osazený jen jeden string. Dobrá ukázka toho, co v datech jde vyčíst. |
 | Nikdo se neptá | Normální v online formátu. „Kdyby vás něco napadlo později, pište na Teams." |
 
@@ -366,10 +384,10 @@ Zákazník (End User)          Tusl01
 
 | Čas | Část | Na obrazovce | Min |
 |---|---|---|---|
-| 7:00 | Úvod — program a rozsah | e-learning, úvod | 3 |
-| 7:03 | Co je Growatt | beze změny | 2 |
-| 7:05 | Uspořádání a dvě sériová čísla | e-learning, modul 2 | 3 |
-| 7:08 | **Živá ukázka** | **portál OSS** | **14** |
+| 7:00 | Úvod — program, rozsah, e-learning | e-learning, úvodní stránka | 4 |
+| 7:04 | Co je Growatt | beze změny | 2 |
+| 7:06 | Uspořádání a dvě sériová čísla | e-learning, modul 2 | 3 |
+| 7:09 | **Živá ukázka** | **portál OSS** | **13** |
 | 7:22 | Jak s tím naložit + ověření po telefonu | detail měniče | 4 |
 | 7:26 | Kam se obrátit | e-learning, moduly | 2 |
 | 7:28 | Závěr a dotazy | e-learning, úvod | 2 |
@@ -380,6 +398,6 @@ Zákazník (End User)          Tusl01
 | Bod | Co | Min |
 |---|---|---|
 | 1 | Přihlášení, výběr serveru, menu | 2 |
-| 2 | Dohledání `TPJ4CD200Z`, záložky, počítadla, State a Lastest Upgrade Time | 3 |
+| 2 | Dohledání `TPJ4CD200Z`, záložky, počítadla, State a Lastest Upgrade Time | 2 |
 | 3 | Detail měniče — hlavička, dlaždice, Problem List, grafy, Historical Data | 5 |
 | 4 | `Set the device` — disclaimer, SOC baterie, Set Exportlimit | 4 |
