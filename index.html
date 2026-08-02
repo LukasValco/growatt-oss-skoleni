@@ -788,18 +788,18 @@ figure img{cursor:zoom-in}
       <p>Vede tam víc cest, všechny končí ve stejném dialogu:</p>
       <table>
         <tr><th>Cesta</th><th>Kudy</th></tr>
-        <tr><td><strong>Z Device List</strong></td><td>Najdi zařízení → sloupec <strong>Operate</strong> → ikona <strong>Set up</strong> (ozubené kolo)</td></tr>
+        <tr><td><strong>Z detailu zařízení</strong></td><td>Vpravo nahoře <strong>Set the device</strong> → odsouhlasit <em>Disclaimer</em> → dialog <strong>Set Hybrid Inverter</strong></td></tr>
         <tr><td><strong>Z detailu měniče</strong></td><td>Dvojklik na zařízení → tlačítko nastavení v detailu</td></tr>
         <tr><td><strong>ShinePhone</strong></td><td>Zákazník nebo technik má v appce v zásadě stejné položky jako my v OSS</td></tr>
       </table>
-      <div class="tip"><strong>Vyžaduje heslo.</strong> Zápis parametrů je chráněn servisním heslem — bez něj dialog změnu neuloží. Pokud ho nemáš, změnu neprovádíš a předáváš ji na servis.</div>
+      <div class="danger"><strong>Disclaimer výrobce.</strong> Před otevřením dialogu musíš odsouhlasit prohlášení, ve kterém Growatt uvádí, že k použití této funkce je nutná <strong>odpovídající kvalifikace a odborné znalosti pro fotovoltaické systémy</strong>, že operace <strong>může způsobit poruchu nebo částečnou poruchu</strong> systému či měniče a že <strong>veškeré ztráty nese ten, kdo změnu provedl</strong>. Ber to jako měřítko toho, s čím pracuješ.</div>
       <div class="warn"><strong>Měnič musí být dostupný.</strong> Nastavení se posílá přes datalogger do měniče. Když je zařízení <strong>Offline</strong>, změna nikam nedojde — může se tvářit, že se uložila, ale v měniči nebude. Před každou změnou zkontroluj, že stav je <strong>Normal</strong>, a po změně si hodnotu <strong>načti zpátky</strong> a ověř.</div>
 
       <h3>Minimální SOC baterie — nejčastější požadavek</h3>
       <p>Zákazník volá, že mu baterie „jde na nulu" a v noci nemá z čeho brát, nebo naopak že mu zůstává zbytečně plná. Řídí to hodnota, pod kterou se baterie přestane vybíjet.</p>
       <table>
         <tr><th>Parametr</th><th>Co dělá</th></tr>
-        <tr><td><strong>Discharge Stopped SOC</strong><br><span style="font-size:12px;color:#888">v kategorii <em>Load First</em></span></td><td>Minimální nabití v %, pod které baterie neklesne. Když ho baterie dosáhne, vybíjení se zastaví a spotřebu převezme FVE a síť.</td></tr>
+        <tr><td><strong>Discharge Stopped Soc</strong><br><span style="font-size:12px;color:#888">v části <em>Load First</em></span></td><td>Minimální nabití v %, pod které baterie neklesne. U Dubné 93 je nastaveno <code>10 %</code>.</td></tr>
         <tr><td><strong>Discharge Power Rate</strong></td><td>Jak rychle se smí baterie vybíjet (% z maximálního výkonu)</td></tr>
       </table>
       <div class="tip"><strong>Doporučené hodnoty podle Growattu:</strong> v létě <strong>10–15 %</strong>, v zimě <strong>40 %</strong>. Zimní rezerva je vyšší schválně — málo výroby a případný výpadek sítě, na který má zůstat energie pro zálohovaný okruh.</div>
@@ -815,19 +815,19 @@ figure img{cursor:zoom-in}
       </table>
       <div class="tip"><strong>Diagnostický tip:</strong> Když si zákazník stěžuje na „divné" chování baterie v určitou denní dobu, podívej se nejdřív na <strong>časové úseky režimů</strong>. Hodně údajných poruch je jen zapomenuté časové okno z instalace.</div>
 
-      <h3>Omezení dodávky do sítě (Export Limit)</h3>
-      <p>Určuje, kolik výkonu smí fotovoltaika posílat do distribuční sítě. U Growattu se to nastavuje přes <strong>Advance set → Register</strong> — zapisují se přímo dva registry:</p>
+      <h3>Omezení dodávky do sítě (Set Exportlimit)</h3>
+      <p>Určuje, kolik výkonu smí fotovoltaika posílat do distribuční sítě. V dialogu <em>Set Hybrid Inverter</em> je to položka <strong>Set Exportlimit</strong>:</p>
       <table>
-        <tr><th>Registr</th><th>Hodnota</th><th>Význam</th></tr>
-        <tr><td><code>202</code></td><td><code>1</code></td><td>Zapne funkci omezení dodávky</td></tr>
-        <tr><td><code>201</code></td><td>např. <code>3000</code></td><td>Povolený výkon do sítě ve <strong>wattech</strong> (3000 = 3 kW)</td></tr>
+        <tr><th>Pole</th><th>Význam</th></tr>
+        <tr><td><strong>Set Exportlimit</strong> — přepínač ON / OFF</td><td>Zapíná omezení dodávky do sítě</td></tr>
+        <tr><td><strong>Limit Power Rate (%)</strong></td><td>Povolený podíl <strong>jmenovitého výkonu</strong> měniče — <em>procenta, ne watty</em>. U Dubné 93 je nastaveno <code>81,0 %</code>, což u desetikilowattového měniče odpovídá zhruba 8 kW.</td></tr>
       </table>
-      <p>Po vyplnění registru a hodnoty se zadá heslo a uloží. Omezení se u některých modelů zadává i procentem — <code>100 %</code> znamená plnou dodávku, <code>50 %</code> polovinu, <code>0 %</code> je nulový export.</p>
+      <div class="tip">Ve stejné části dialogu jsou i položky <strong>SingleExport</strong> a <strong>LoadFirstControl</strong>, které souvisejí s chováním po jednotlivých fázích. K jejich přesnému významu nemáme ověřenou dokumentaci — pokud na ně narazíš, needituj je a předej dotaz dál.</div>
       <div class="danger"><strong>⛔ Tohle sám neměň.</strong> Povolený výkon do sítě není technická drobnost — vychází ze <strong>smlouvy o připojení s distributorem</strong>. Když ho zvýšíš, můžeš zákazníka dostat do rozporu s podmínkami připojení; když ho omylem snížíš nebo vynuluješ, přijde o výnosy a bude reklamovat. Změnu export limitu na lince <strong>neprovádíme</strong> — předáváme ji na servis nebo na toho, kdo instalaci připojoval.</div>
 
-      <h3>Asymetrie — čím se Growatt liší od SolaXu</h3>
-      <p>U některých značek se asymetrický provoz zapíná a vypíná jako samostatná funkce. U <strong>SPH ...TL3 BH-UP</strong>, které montujeme nejčastěji, to tak není: tyto měniče jsou <strong>konstrukčně asymetrické</strong> a zvládají 100% nerovnoměrné rozložení výkonu mezi fázemi. Není to funkce, kterou bys zapínal — měnič ji má vždy.</p>
-      <div class="tip"><strong>Co říct zákazníkovi:</strong> „Váš měnič umí do každé fáze poslat jiný výkon, tohle se nenastavuje." Pokud zákazník řeší asymetrii kvůli požadavku distributora, není to věc poruchové linky — patří to na projektanta nebo servis.</div>
+      <h3>Asymetrie</h3>
+      <p>Měniče <strong>SPH ...TL3 BH-UP</strong> jsou podle výrobce schopné 100% nerovnoměrného rozložení výkonu mezi fázemi — asymetrický provoz tedy zvládají konstrukčně a není potřeba ho zapínat.</p>
+      <div class="warn"><strong>Nemáme ale ověřeno,</strong> jestli položky <strong>SingleExport</strong> a <strong>LoadFirstControl</strong> v dialogu nastavení chování po fázích nějak neovlivňují. Dokud to nebude potvrzené, ber asymetrii jako téma, které <strong>na lince neřešíš</strong> — patří na projektanta nebo servis.</div>
 
       <h3>Postup při jakékoliv změně parametru</h3>
       <div class="flow">
@@ -844,8 +844,8 @@ figure img{cursor:zoom-in}
         <tr><th>Co potřebuješ</th><th>Kde to je u Growattu</th><th>Smíme na lince?</th></tr>
         <tr><td>Minimální SOC baterie</td><td>Set up → <em>Load First</em> → <strong>Discharge Stopped SOC</strong></td><td>✅ Na žádost zákazníka</td></tr>
         <tr><td>Maximální SOC / nabíjení</td><td>Set up → nabíjecí nastavení (<em>Battery First</em>)</td><td>✅ Na žádost zákazníka</td></tr>
-        <tr><td>Export control / limit do sítě</td><td>Set up → <em>Advance set</em> → Register <code>202</code>=1, <code>201</code>=W</td><td>❌ Předat servisu</td></tr>
-        <tr><td>Zapnout / vypnout asymetrii</td><td>U SPH ...TL3 BH-UP se nenastavuje — měnič je asymetrický vždy</td><td>— Nemá co měnit</td></tr>
+        <tr><td>Export control / limit do sítě</td><td>Set the device → <strong>Set Exportlimit</strong> (ON + % jmenovitého výkonu)</td><td>❌ Jen na zadání</td></tr>
+        <tr><td>Asymetrie</td><td>Měnič ji zvládá konstrukčně; vliv položek SingleExport a LoadFirstControl neověřen</td><td>— Neřešíš na lince</td></tr>
       </table>
 
       <div class="nav-btns">
@@ -917,8 +917,8 @@ figure img{cursor:zoom-in}
           <tr><td>Minimální SOC baterie</td><td>Set up → <em>Load First</em> → Discharge Stopped SOC<br><span style="font-size:12px;color:#888">léto 10–15 %, zima 40 %</span></td><td>✅ Na žádost zákazníka</td></tr>
           <tr><td>Nabíjení / max SOC</td><td>Set up → <em>Battery First</em></td><td>✅ Na žádost zákazníka</td></tr>
           <tr><td>Provozní režim + časy</td><td>Set up → Load / Battery / Grid First</td><td>✅ Ověřit dřív než hlásíš poruchu</td></tr>
-          <tr><td>Export limit (výkon do sítě)</td><td><em>Advance set</em> → Register <code>202</code>=1, <code>201</code>=W</td><td>❌ <strong>Předat servisu</strong> — plyne ze smlouvy o připojení</td></tr>
-          <tr><td>Asymetrie</td><td>U SPH ...TL3 BH-UP se nenastavuje, měnič ji má vždy</td><td>— Nemá co měnit</td></tr>
+          <tr><td>Export limit (výkon do sítě)</td><td>Set the device → <strong>Set Exportlimit</strong><br><span style="font-size:12px;color:#888">ON + Limit Power Rate v % jmenovitého výkonu</span></td><td>❌ <strong>Jen na zadání</strong> — plyne ze smlouvy o připojení</td></tr>
+          <tr><td>Asymetrie</td><td>Zvládá ji konstrukčně, na lince se neřeší</td><td>— Předat dál</td></tr>
         </table>
         <p style="margin-top:8px"><strong>Vždy:</strong> zařízení musí být <strong>Normal</strong> (na Offline změna nedojde) · zapiš si původní hodnotu · po uložení ověř zpětně · zaznamenej co, kdy a na čí žádost.</p>
       </div>
