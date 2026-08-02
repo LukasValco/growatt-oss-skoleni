@@ -57,8 +57,8 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 - [ ] **Přihlášen v OSS**, `TPJ4CD200Z` dohledané, detail otevřený ve vlastní záložce
 - [ ] **Sériové číslo `TPJ4CD200Z` ve schránce**
-- [ ] **Otevři si předem „Set the device"** a projdi, co v dialogu je — scénář počítá s tím, že tam najdeš nastavení SOC a přetoku, ale rozložení dialogu si musíš ověřit sám. Podle toho případně uprav bod 5 ukázky.
-- [ ] **Nic v dialogu neukládej** — je to ostrý měnič
+- [ ] **Projdi si předem „Set the device"** — po odsouhlasení disclaimeru se otevře dlouhý dialog. Vyzkoušej si, kde je *Load First* a kde *Set Exportlimit*, ať se v něm při ukázce nehledáš.
+- [ ] **Nic v dialogu neukládej** — zavírej tlačítkem **Cancel**
 - [ ] E-learning otevřený na úvodní stránce
 - [ ] Vyzkoušené sdílení v Teams a přepínání mezi okny
 - [ ] Písmo v prohlížeči na 125 %, zavřené notifikace
@@ -172,7 +172,7 @@ Zákazník (End User)          Tusl01
 >
 > A **Last update** — kdy naposledy data dorazila. U stavu Offline vám tenhle údaj řekne, jak dlouho už to trvá."
 
-### 3) Detail měniče — co se z něj dá vyčíst (6 min)
+### 3) Detail měniče — co se z něj dá vyčíst (5 min)
 
 🖱 **Dvojklik** na zařízení `TPJ4CD200Z`
 
@@ -211,27 +211,47 @@ Zákazník (End User)          Tusl01
 
 > „Když se vás tedy někdo zeptá, jestli má střídač napětí na síti, odpověď najdete ve sloupcích **Vac1 až Vac3**. A jestli vyrábí, poznáte podle sloupce **Ppv**."
 
-### 4) Kde se mění nastavení (3 min)
+### 4) Kde se mění nastavení (4 min)
 
 🖱 Ukaž tlačítka vpravo nahoře: **Editing device · Set the device · Set datalogger · Delete device**
 
-> „A poslední věc, kterou vám chci ukázat. Vpravo nahoře jsou čtyři tlačítka. Nás zajímají dvě: **Set the device** je nastavení samotného střídače, **Set datalogger** je nastavení komunikačního modulu."
+> „Poslední část. Vpravo nahoře jsou čtyři tlačítka. Nás zajímá **Set the device** — nastavení samotného střídače. Vedle je **Set datalogger**, tedy nastavení komunikačního modulu."
 
-🖱 Otevři **Set the device** a projdi položky. **Neukládej nic.**
+🖱 Klikni **Set the device**. Objeví se **Disclaimer** — nechej ho chvíli na obrazovce.
 
-> „Tady se mění provozní parametry na dálku. Dvě, o které jde nejčastěji:
+> „A všimněte si, co se stane jako první. Portál vás nepustí dál, dokud neodsouhlasíte prohlášení výrobce. Přečtu z něj dvě věty:
 >
-> **Minimální nabití baterie** — hodnota, pod kterou se baterie nevybije. Zákazníci volají, že jim baterie v noci padá na nulu, nebo naopak že jim zůstává zbytečně plná. Growatt doporučuje zhruba deset až patnáct procent v létě a čtyřicet procent v zimě, protože v zimě se má něco nechat pro zálohovaný okruh.
+> *Aby bylo možné tuto funkci zapnout, musíte mít odpovídající kvalifikaci a odborné znalosti pro fotovoltaické systémy.* A dále: *provedení této operace může způsobit poruchu nebo částečnou poruchu fotovoltaického systému nebo střídače; veškeré ztráty nese ten, kdo změnu provedl.*
 >
-> **Přetok do sítě** — kolik výkonu smí elektrárna posílat do distribuční sítě.
+> To není naše opatrnost, to je text Growattu. Berte ho jako měřítko toho, s čím se tady pracuje."
+
+🖱 Zaškrtni **I have read and agree to the disclaimer** → **Yes**. Otevře se dialog **Set Hybrid Inverter**.
+
+> „Nahoře je identifikace — sériové číslo střídače a dataloggeru. Vždy si ověřte, že měníte správné zařízení.
 >
-> Nastavení se posílá přes datalogger do střídače, takže **musí být online**. U instalace ve stavu Offline změna nedojde — dialog se může tvářit, že se uložila, ale ve střídači nebude. Proto se po každé změně hodnota načítá zpátky a ověřuje."
+> Pod tím je seznam příkazů a před každým je kolečko. Vyberete jeden příkaz, vyplníte hodnotu a odešlete."
 
-⚠️ Řekni jednou větou, nezdržuj se:
+🖱 Ukaž **Load First → Discharge Stopped Soc**
 
-> „A ještě jedna věc: povolený přetok vychází z **podmínek připojení s distributorem**. Neměňte ho z vlastního uvážení — jen na základě konkrétního zadání."
+> „Nejčastější požadavek je minimální nabití baterie. Je pod položkou **Load First**, jmenuje se **Discharge Stopped Soc**. U naší instalace je nastaveno **deset procent** — baterie se tedy nevybije pod desetinu kapacity.
+>
+> Když zákazník volá, že mu baterie v noci padá na nulu a ráno nemá z čeho brát, je to tahle hodnota. Growatt doporučuje zhruba deset až patnáct procent v létě a kolem čtyřiceti v zimě, aby zůstala rezerva pro zálohovaný okruh."
 
-🖱 **Zavři dialog bez uložení.**
+🖱 Vyjeď nahoru na **Battery First**
+
+> „Kousek výš je **Battery First** a v něm **Charge Stopped Soc** — do kolika se baterie nabije. Tady sto procent. Pod tím je **Ac Charge**, tedy nabíjení ze sítě, a tři časová okna.
+>
+> Tohle si zapamatujte: když si zákazník stěžuje, že se baterie chová divně v určitou denní dobu, podívejte se nejdřív na tahle časová okna. Docela často je to zapomenuté nastavení z instalace, ne závada."
+
+🖱 Sjeď dolů na **Set Exportlimit**
+
+> „A přetok do sítě — položka **Set Exportlimit**. U nás je zapnutá a nastavená na **81 procent**; ten údaj se jmenuje Limit Power Rate, je to tedy podíl jmenovitého výkonu, ne wattů. U desetikilowattového střídače to odpovídá zhruba osmi kilowattům.
+>
+> Tady prosím pozor: povolený přetok vychází z **podmínek připojení s distributorem**. Neměňte ho z vlastního uvážení — jen na základě konkrétního zadání."
+
+🖱 **Zavři dialog tlačítkem Cancel.** Nic neukládej.
+
+> „Ještě dvě věci, které platí pro jakoukoli změnu. Za prvé, nastavení jde přes datalogger do střídače, takže **střídač musí být online** — u instalace ve stavu Offline změna nedojde. Za druhé, po uložení si hodnotu **načtěte znovu a ověřte**, že se skutečně propsala."
 
 ---
 
@@ -290,7 +310,7 @@ Zákazník (End User)          Tusl01
 > **Za prvé** — Growatt rozpoznáte podle štítku, instalaci dohledáte podle **sériového čísla měniče** v portálu `oss.growatt.com`.
 > **Za druhé** — v detailu zařízení přečtete stav, výrobu, napětí na fázích i stav baterie.
 > **Za třetí** — když je instalace Offline, necháte si po telefonu popsat kontrolku a displej na měniči. Zelená znamená, že vyrábí a jde jen o komunikaci.
-> **Za čtvrté** — minimální nabití baterie a přetok do sítě se nastavují přes **Set the device**; přetok jen na základě zadání.
+> **Za čtvrté** — minimální nabití baterie (*Load First → Discharge Stopped Soc*) a přetok do sítě (*Set Exportlimit*) se mění přes **Set the device**; přetok jen na základě zadání.
 >
 > Tolik ode mě. Podívám se do chatu — máte nějaké dotazy?"
 
@@ -326,7 +346,7 @@ Zákazník (End User)          Tusl01
 |---|---|
 | Portál není dostupný | Dokonči ukázku na snímcích v e-learningu |
 | Nepodaří se přihlásit | Neopakuj pokusy, po pěti se účet zamkne na 15 minut |
-| `Set the device` vypadá jinak, než čekáš | Neimprovizuj do hloubky — „Rozložení si projdeme v samostatném návodu", a jdi dál |
+| Ztratíš se v dialogu `Set Hybrid Inverter` | Je dlouhý. Když nenajdeš položku do deseti sekund, řekni „Podrobný návod k nastavení připravíme zvlášť" a zavři ho. |
 | **Nestíháš** | Zkrať bod 3 ukázky (grafy). **Nezkracuj úvod, nastavení ani část „Jak s tím naložit".** |
 | Máš čas navíc | V Historical Data ukaž `Vpv2`/`Ppv2` — jsou nulové, protože je osazený jen jeden string. Dobrá ukázka toho, co v datech jde vyčíst. |
 | Nikdo se neptá | Normální v online formátu. „Kdyby vás něco napadlo později, pište na Teams." |
@@ -352,5 +372,5 @@ Zákazník (End User)          Tusl01
 |---|---|---|
 | 1 | Přihlášení, výběr serveru, menu | 2 |
 | 2 | Dohledání `TPJ4CD200Z`, záložky, State a Last update | 3 |
-| 3 | Detail měniče — hlavička, dlaždice, Problem List, grafy, Historical Data | 6 |
-| 4 | `Set the device` — SOC baterie a přetok do sítě | 3 |
+| 3 | Detail měniče — hlavička, dlaždice, Problem List, grafy, Historical Data | 5 |
+| 4 | `Set the device` — disclaimer, SOC baterie, Set Exportlimit | 4 |
