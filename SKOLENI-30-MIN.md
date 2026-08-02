@@ -53,7 +53,7 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 |---|---|---|
 | 7:00 | E-learning | **úvodní stránka** (modul „Úvod") |
 | 7:04 | E-learning | beze změny |
-| 7:06 | E-learning | modul **`2` Datový model** → schéma hierarchie, pak sekce *Co je Datalogger* |
+| 7:06 | E-learning | modul **`2` Datový model** → schéma hierarchie, pak sekce *Dvě různá sériová čísla* |
 | 7:09 | **Portál OSS** | přihlašovací stránka → Device List → detail měniče |
 | 7:22 | Portál OSS | zůstáváš v **Device Detail** `TPJ4CD200Z` |
 | 7:26 | E-learning | **levé menu s moduly** |
@@ -143,19 +143,21 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 
 ### Dvě různá sériová čísla
 
-📺 **NA OBRAZOVCE:** sjeď v témže modulu níž na sekci **„Co je Datalogger a proč je důležitý"** — je tam tabulka a rámeček *„Pozor! SN měniče ≠ SN dataloggeru"*.
+📺 **NA OBRAZOVCE:** sjeď v témže modulu níž na sekci **„Dvě různá sériová čísla — nepleť si je"**. Je tam srovnávací tabulka obou čísel i s konkrétními hodnotami z Dubné 93 a pod ní červený rámeček.
 
-> „Sjedu o kousek níž, protože tady je věc, která dělá v praxi nejvíc zmatku. Jsou v tom **dvě různá sériová čísla** a snadno se popletou.
+> „Sjedu o kousek níž, protože tady je věc, která dělá v praxi nejvíc zmatku. Každá instalace má **dvě sériová čísla** a na první pohled vypadají podobně.
 >
-> **První je sériové číslo měniče.** Je na typovém štítku na boku měniče. To je číslo, se kterým budete pracovat vy — podle něj zákazníka dohledáte.
+> **První je sériové číslo měniče** — v portálu je vedené jako Device SN. Zákazník ho najde na **typovém štítku na boku měniče**. Tady v tabulce vidíte to naše: začíná na T-P-J. **To je číslo, se kterým budete pracovat vy**, podle něj zákazníka dohledáte.
 >
-> **Druhé je sériové číslo dataloggeru**, tedy toho wi-fi adaptéru. To je na štítku přímo na něm a je k němu ještě takzvaný **Check Code**, ověřovací kód. Obě čísla jsou desetimístná, obě obsahují písmena i číslice a na první pohled vypadají stejně. Ale patří jinému zařízení.
+> **Druhé je sériové číslo dataloggeru**, tedy toho wi-fi adaptéru. To je na štítku přímo na něm a v tabulce vidíte, že vypadá úplně jinak — začíná na X-G-D. Patří jinému zařízení.
 >
 > Proč vám to říkám: když se zákazníka zeptáte na sériové číslo a on vám přečte to z wi-fi klíče, budete ho hledat marně a budete si myslet, že ho v systému nemáme. Takže si vždycky ověřte, **odkud to číslo čte** — má to být štítek na samotném měniči, ne na té malé krabičce vedle.
 >
-> Číslo dataloggeru budete potřebovat jen výjimečně. Používá se, když se instalace zakládá do monitoringu, a to dělá montážní firma nebo zákazník přes mobilní aplikaci, ne vy. **Vy vyhledáváte podle sériového čísla měniče.**
+> A ještě jedna souvislost, kterou uvidíte za chvíli v portálu: **každý měnič má svůj vlastní datalogger.** Naše instalace má dva měniče, a tedy i dvě různá čísla dataloggerů.
 >
-> Za chvíli si obě čísla ukážu přímo v portálu, kde jsou hezky vedle sebe v jednom řádku."
+> Číslo dataloggeru budete potřebovat jen výjimečně — používá se při zakládání instalace do monitoringu spolu s ověřovacím kódem, takzvaným Check Code. Ale to dělá montážní firma nebo zákazník přes mobilní aplikaci, ne vy. **Vy vyhledáváte podle sériového čísla měniče.**
+>
+> Za chvíli si obě čísla ukážu přímo v portálu, kde jsou vedle sebe v jednom řádku."
 
 ### Komunikace není totéž co výroba
 

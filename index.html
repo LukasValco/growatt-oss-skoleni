@@ -426,14 +426,19 @@ figure img{cursor:zoom-in}
 
       <div class="warn"><strong>Pořadí zakládání je pevné:</strong> Nejdřív musí existovat End User → pak Plant → pak Device (přes Datalogger). Výjimka: přes <em>Add Equipment</em> lze vše naráz „odspodu" — systém vytvoří celou vazbu v jednom kroku.</div>
 
-      <h3>Co je Datalogger a proč je důležitý</h3>
-      <p>Datalogger (nebo Collector) je fyzický komunikační modul — většinou malý WiFi dongle zapojený do měniče. Posílá data z měniče na server Growatt. Bez funkčního dataloggeru = žádná data v OSS.</p>
+      <h3>Dvě různá sériová čísla — nepleť si je</h3>
+      <p>Tohle je v praxi nejčastější zdroj zmatku při dohledávání. Každá instalace má <strong>dvě</strong> sériová čísla a vypadají podobně:</p>
       <table>
-        <tr><th>Identifikátor</th><th>Co to je</th><th>Kde ho zákazník najde</th></tr>
-        <tr><td><strong>SN dataloggeru</strong></td><td>Sériové číslo WiFi klíče</td><td>Štítek na WiFi klíči / v ShinePhone</td></tr>
-        <tr><td><strong>Check Code</strong></td><td>Ověřovací kód — bez něj nelze přidat</td><td>Štítek na WiFi klíči (obvykle pod SN)</td></tr>
+        <tr><th>Číslo</th><th>Patří k čemu</th><th>Kde ho zákazník najde</th><th>Dubné 93</th></tr>
+        <tr><td><strong>SN měniče</strong><br><span style="font-size:12px;color:#888">Device SN</span></td><td>Samotný střídač</td><td><strong>Typový štítek na boku měniče</strong></td><td><code>TPJ4CD200Z</code></td></tr>
+        <tr><td><strong>SN dataloggeru</strong><br><span style="font-size:12px;color:#888">Datalogger</span></td><td>Komunikační WiFi modul</td><td>Štítek na WiFi klíči / v ShinePhone</td><td><code>XGD5BLB26M</code></td></tr>
       </table>
-      <div class="tip"><strong>Pozor!</strong> SN měniče ≠ SN dataloggeru. SN měniče je na typovém štítku na boku měniče, SN dataloggeru na štítku WiFi klíče — dvě různá desetimístná čísla. Pro přidání zařízení potřebujeme SN <em>dataloggeru</em> + Check Code.</div>
+      <div class="danger"><strong>⚠️ Podle čeho hledáš:</strong> V Device List vyhledáváš podle <strong>SN měniče</strong>. Když ti zákazník přečte číslo z WiFi klíče, nenajdeš ho a budeš si myslet, že instalaci nemáme v systému. Vždy si ověř, <em>odkud</em> to číslo čte — má to být štítek na samotném měniči.</div>
+
+      <h3>Co je Datalogger a proč je důležitý</h3>
+      <p>Datalogger (nebo Collector) je fyzický komunikační modul — většinou malý WiFi dongle zapojený do měniče. Posílá data z měniče na server Growatt. <strong>Bez funkčního dataloggeru = žádná data v OSS.</strong></p>
+      <div class="tip"><strong>Každý měnič má svůj vlastní.</strong> U Dubné 93 jsou dva měniče a dva dataloggery — <code>XGD5BLB26M</code> a <code>XGD5BLB26G</code>.</div>
+      <p>Kromě SN je na štítku dataloggeru ještě <strong>Check Code</strong>, ověřovací kód. Bez něj nelze zařízení přidat do monitoringu. Na lince ho prakticky nepotřebuješ — zakládání instalací dělá montážní firma nebo zákazník přes ShinePhone.</p>
 
       <h3>Typy elektráren</h3>
       <table>
