@@ -172,7 +172,7 @@ Zákazník (End User)          Tusl01
 >
 > A **Last update** — kdy naposledy data dorazila. U stavu Offline vám tenhle údaj řekne, jak dlouho už to trvá."
 
-### 3) Detail měniče — co se z něj dá vyčíst (5 min)
+### 3) Detail měniče — co se z něj dá vyčíst (6 min)
 
 🖱 **Dvojklik** na zařízení `TPJ4CD200Z`
 
@@ -352,5 +352,5 @@ Zákazník (End User)          Tusl01
 |---|---|---|
 | 1 | Přihlášení, výběr serveru, menu | 2 |
 | 2 | Dohledání `TPJ4CD200Z`, záložky, State a Last update | 3 |
-| 3 | Detail měniče — hlavička, dlaždice, Problem List, grafy, Historical Data | 5 |
+| 3 | Detail měniče — hlavička, dlaždice, Problem List, grafy, Historical Data | 6 |
 | 4 | `Set the device` — SOC baterie a přetok do sítě | 3 |
