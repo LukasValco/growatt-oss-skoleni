@@ -227,11 +227,23 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 >
 > U nás jsou dvě zařízení online a nula ve všech ostatních sloupcích, takže je instalace v pořádku. Jedním pohledem."
 
+*Tvůj přehled, kdyby ses zadrhl — je to celý výčet stavů, se kterými se můžeš setkat:*
+
+| Stav | Co znamená | Řeší se? |
+|---|---|---|
+| **Online** | normální provoz | ne |
+| **Standby** | klidový režim, nevyrábí, ale nic nehlásí | ne |
+| **Self Test** | probíhá samotest, přechodný stav | ne |
+| **Offline** | nedorazila data — problém komunikace | **ano** |
+| **Abnormal** | střídač hlásí závadu | **ano** |
+
 🖱 Ukaž sloupce **State** a **Lastest Upgrade Time**. Kurzorem ukazuj, o kterém mluvíš.
 
-> „A teď pozor na drobnost, která mate. V té liště nahoře se ten stav jmenuje **Online**, ale ve sloupci **State** u konkrétního řádku je napsáno **Normal**. Je to jedna a tatáž věc — portál na dvou místech jedné obrazovky používá jiné slovo. Zapamatujte si tedy: **zdravý střídač má ve sloupci State napsáno Normal.**
+> „A teď to samé u konkrétního zařízení. Sloupec **State** říká, v jakém stavu je **tenhle jeden střídač**. Tady je **Normal** — a pozor na drobnost, která mate: v liště nahoře se ten samý stav jmenuje **Online**, ve sloupci **State** je **Normal**. Je to jedna a tatáž věc, portál jen na dvou místech jedné obrazovky používá jiné slovo. Zapamatujte si tedy: **zdravý střídač má ve sloupci State napsáno Normal.**
 >
-> Hned vedle je sloupec **Lastest Upgrade Time**, tedy čas poslední aktualizace údajů. Když je zařízení ve stavu Offline, právě tenhle údaj vám řekne, **jak dlouho už mlčí**. Deset minut je úplně běžné, to se občas stane. Tři týdny už znamenají, že se něco doopravdy stalo."
+> A když bude něco v nepořádku, změní se to právě tady — podle toho, jestli přestane komunikovat, nebo nahlásí závadu. Tenhle jeden sloupec je to první, kam se u každého hovoru podíváte.
+>
+> Hned vedle je **Lastest Upgrade Time**, tedy čas poslední aktualizace údajů. Když zařízení nekomunikuje, právě tenhle údaj vám řekne, **jak dlouho už mlčí**. Deset minut je úplně běžné, to se občas stane. Tři týdny už znamenají, že se něco doopravdy stalo."
 
 🖱 Projeď kurzorem zbytek řádku zleva doprava.
 
