@@ -481,6 +481,9 @@ Aby po hovoru se zákazníkem uměli: **dohledat instalaci**, **přečíst provo
 **„Můžeme tedy zákazníkovi přenastavit baterii sami?"**
 > „Minimální nabití ano, pokud o to zákazník požádá — jen si vždy poznamenejte původní hodnotu a po uložení ověřte, že se změna propsala. Přetok do sítě ne bez zadání, ten vychází z podmínek připojení."
 
+**„A co asymetrie? U SolaXu to zapínáme přes PhaseUnbalance."**
+> „Growatt to má taky. Samotné měniče SPH jsou asymetrické už z výroby — zvládají stoprocentně nerovnoměrné rozložení mezi fázemi, to se nikde nepovoluje. A nastavení, které odpovídá SolaXímu PhaseUnbalance, se jmenuje **LoadFirstControl** a je v tom samém dialogu, kde jsme viděli přetok. Ale je to věc projektanta nebo servisu, ne naše."
+
 **„Co když si nebudu vědět rady?"**
 > „Založíte ticket nebo se zeptáte na Teams. To je správný postup, nikoli selhání."
 

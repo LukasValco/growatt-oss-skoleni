@@ -842,12 +842,19 @@ figure img{cursor:zoom-in}
         <tr><td><strong>Set Exportlimit</strong> — přepínač ON / OFF</td><td>Zapíná omezení dodávky do sítě</td></tr>
         <tr><td><strong>Limit Power Rate (%)</strong></td><td>Povolený podíl <strong>jmenovitého výkonu</strong> měniče — <em>procenta, ne watty</em>. U Dubné 93 je nastaveno <code>81,0 %</code>, což u desetikilowattového měniče odpovídá zhruba 8 kW.</td></tr>
       </table>
-      <div class="tip">Ve stejné části dialogu jsou i položky <strong>SingleExport</strong> a <strong>LoadFirstControl</strong>, které souvisejí s chováním po jednotlivých fázích. K jejich přesnému významu nemáme ověřenou dokumentaci — pokud na ně narazíš, needituj je a předej dotaz dál.</div>
+      <div class="tip">Hned pod tím jsou položky <strong>SingleExport</strong> a <strong>LoadFirstControl</strong>. Ty řídí, jestli se omezení dodávky vyhodnocuje <strong>po jednotlivých fázích, nebo součtem</strong> — viz sekce o asymetrii níže.</div>
       <div class="danger"><strong>⛔ Tohle sám neměň.</strong> Povolený výkon do sítě není technická drobnost — vychází ze <strong>smlouvy o připojení s distributorem</strong>. Když ho zvýšíš, můžeš zákazníka dostat do rozporu s podmínkami připojení; když ho omylem snížíš nebo vynuluješ, přijde o výnosy a bude reklamovat. Změnu export limitu na lince <strong>neprovádíme</strong> — předáváme ji na servis nebo na toho, kdo instalaci připojoval.</div>
 
-      <h3>Asymetrie</h3>
-      <p>Měniče <strong>SPH ...TL3 BH-UP</strong> jsou podle výrobce schopné 100% nerovnoměrného rozložení výkonu mezi fázemi — asymetrický provoz tedy zvládají konstrukčně a není potřeba ho zapínat.</p>
-      <div class="warn"><strong>Nemáme ale ověřeno,</strong> jestli položky <strong>SingleExport</strong> a <strong>LoadFirstControl</strong> v dialogu nastavení chování po fázích nějak neovlivňují. Dokud to nebude potvrzené, ber asymetrii jako téma, které <strong>na lince neřešíš</strong> — patří na projektanta nebo servis.</div>
+      <h3>Asymetrie — obdoba PhaseUnbalance u SolaXu</h3>
+      <p>Je potřeba rozlišit dvě věci, které se snadno slévají dohromady:</p>
+      <table>
+        <tr><th></th><th>Jak to je u Growattu</th></tr>
+        <tr><td><strong>Schopnost hardwaru</strong></td><td>Měniče <strong>SPH ...TL3 BH-UP</strong> zvládají <strong>100% nerovnoměrné rozložení výkonu mezi fázemi</strong>. Je to konstrukční vlastnost celé řady, ne příplatková funkce — čeští distributoři je prodávají přímo jako „asymetrické".</td></tr>
+        <tr><td><strong>Nastavení</strong></td><td>Existuje a je to <strong>obdoba SolaXího PhaseUnbalance</strong>. Jmenuje se <strong>LoadFirstControl</strong> a má dvě hodnoty: <code>SiEn</code> (Single Phase Enable) a <code>ThEn</code> (Three Phase Enable). Souvisí s ním přepínač <strong>SingleExport</strong> ON/OFF.</td></tr>
+      </table>
+      <p>Obě položky najdeš v dialogu <em>Set Hybrid Inverter</em> hned pod <strong>Set Exportlimit</strong> — a stejně jsou seskupené i v menu na displeji měniče, kde jsou všechny tři pod položkou <em>ExportLimit</em>. To napovídá, čeho se týkají: <strong>ne toho, jestli měnič smí do fází posílat různý výkon, ale toho, jestli se omezení dodávky vyhodnocuje po jednotlivých fázích, nebo součtem přes všechny tři.</strong></p>
+      <div class="ok"><strong>U Dubné 93</strong> je <code>LoadFirstControl = Single Phase Enab…</code>, tedy <code>SiEn</code>, a <code>SingleExport = ON</code>.</div>
+      <div class="warn"><strong>Co ještě není potvrzené:</strong> přesné chování obou přepínačů máme z podpůrného článku k displeji měniče, ne z oficiálního manuálu. Než podle toho někdo bude něco nastavovat, ať si to potvrdí u Growattu. <strong>Na lince to stejně neřešíš</strong> — když zákazník řeší asymetrii kvůli požadavku distributora, předej to na projektanta nebo servis.</div>
 
       <h3>Postup při jakékoliv změně parametru</h3>
       <div class="flow">
@@ -865,7 +872,7 @@ figure img{cursor:zoom-in}
         <tr><td>Minimální SOC baterie</td><td>Set up → <em>Load First</em> → <strong>Discharge Stopped SOC</strong></td><td>✅ Na žádost zákazníka</td></tr>
         <tr><td>Maximální SOC / nabíjení</td><td>Set up → nabíjecí nastavení (<em>Battery First</em>)</td><td>✅ Na žádost zákazníka</td></tr>
         <tr><td>Export control / limit do sítě</td><td>Set the device → <strong>Set Exportlimit</strong> (ON + % jmenovitého výkonu)</td><td>❌ Jen na zadání</td></tr>
-        <tr><td>Asymetrie</td><td>Měnič ji zvládá konstrukčně; vliv položek SingleExport a LoadFirstControl neověřen</td><td>— Neřešíš na lince</td></tr>
+        <tr><td>Asymetrie (obdoba PhaseUnbalance)</td><td>Set the device → <strong>LoadFirstControl</strong> <code>SiEn</code>/<code>ThEn</code> + <strong>SingleExport</strong></td><td>❌ Předat projektantovi či servisu</td></tr>
       </table>
 
       <div class="nav-btns">
@@ -938,7 +945,7 @@ figure img{cursor:zoom-in}
           <tr><td>Nabíjení / max SOC</td><td>Set up → <em>Battery First</em></td><td>✅ Na žádost zákazníka</td></tr>
           <tr><td>Provozní režim + časy</td><td>Set up → Load / Battery / Grid First</td><td>✅ Ověřit dřív než hlásíš poruchu</td></tr>
           <tr><td>Export limit (výkon do sítě)</td><td>Set the device → <strong>Set Exportlimit</strong><br><span style="font-size:12px;color:#888">ON + Limit Power Rate v % jmenovitého výkonu</span></td><td>❌ <strong>Jen na zadání</strong> — plyne ze smlouvy o připojení</td></tr>
-          <tr><td>Asymetrie</td><td>Zvládá ji konstrukčně, na lince se neřeší</td><td>— Předat dál</td></tr>
+          <tr><td>Asymetrie</td><td><strong>LoadFirstControl</strong> <code>SiEn</code>/<code>ThEn</code> + <strong>SingleExport</strong><br><span style="font-size:12px;color:#888">obdoba PhaseUnbalance u SolaXu</span></td><td>❌ Předat dál</td></tr>
         </table>
         <p style="margin-top:8px"><strong>Vždy:</strong> zařízení musí být <strong>Normal</strong> (na Offline změna nedojde) · zapiš si původní hodnotu · po uložení ověř zpětně · zaznamenej co, kdy a na čí žádost.</p>
       </div>
